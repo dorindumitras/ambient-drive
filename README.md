@@ -1,6 +1,6 @@
 # Ambient Drive
 
-**By Dorin Dumitras.** A native iDrive7 app that changes ambient lighting according to the driving mode and the M/S gear selector position.
+A native iDrive7 app that changes ambient lighting according to the driving mode and the M/S gear selector position.
 
 ![Ambient Drive](ambient-drive.png)
 
