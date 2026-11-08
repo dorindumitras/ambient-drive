@@ -10,7 +10,7 @@ The native interface follows the iDrive language and uses the car's installed pr
 
 ## Install
 
-In MGU Store use **Settings → Add source**, enter **maxon50/ambient-drive**, choose **Releases**, then **Check now**. Open Ambient Drive. Its service dependency is installed first when needed.
+In MGU Store use **Settings → Add source**, enter **dorindumitras/ambient-drive**, choose **Releases**, then **Check now**. Open Ambient Drive. Its service dependency is installed first when needed.
 
 Current packages: app **0.2.5**, service **0.2.4**. Requires iDrive7, MGU Store and mgu-deploy0.7.11 or newer.
 
