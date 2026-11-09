@@ -1,0 +1,85 @@
+{
+  "id": "dorin-ambient",
+  "kind": "tool",
+  "version": "0.2.4",
+  "title": "Ambient Drive Service",
+  "description": "Aplică regulile de culoare și păstrează setările Ambient Drive între porniri. Componentă necesară aplicației Ambient Drive.",
+  "mguHmi": [
+    "ID7"
+  ],
+  "requires": {
+    "mgu-deploy": "0.7.11"
+  },
+  "files": [
+    {
+      "path": "daemon.js",
+      "mode": "0644"
+    },
+    {
+      "path": "controller.js",
+      "mode": "0644"
+    },
+    {
+      "path": "driver.js",
+      "mode": "0644"
+    },
+    {
+      "path": "client.js",
+      "mode": "0644"
+    },
+    {
+      "path": "deactivate.js",
+      "mode": "0644"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "0644"
+    },
+    {
+      "path": "model.js",
+      "mode": "0644"
+    },
+    {
+      "path": "profile.json",
+      "mode": "0644"
+    },
+    {
+      "path": "settings-store.js",
+      "mode": "0644"
+    },
+    {
+      "path": "bootstrap.js",
+      "mode": "0644"
+    },
+    {
+      "path": "socket-group.js",
+      "mode": "0644"
+    }
+  ],
+  "units": [
+    {
+      "name": "dorin-ambient.service",
+      "from": "dorin-ambient.service"
+    }
+  ],
+  "enable": [
+    {
+      "unit": "dorin-ambient.service",
+      "target": "oapcontroller.service"
+    }
+  ],
+  "recmgr": [
+    "dorin-ambient"
+  ],
+  "restart": [
+    "dorin-ambient.service"
+  ],
+  "deactivate": [
+    "node",
+    "deactivate.js"
+  ],
+  "check": [
+    "client.js",
+    "status"
+  ]
+}

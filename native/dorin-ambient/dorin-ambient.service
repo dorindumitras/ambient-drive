@@ -1,0 +1,24 @@
+[Unit]
+Description=Ambient Drive: driving mode ambient colors
+RequiresMountsFor=/var/opt
+After=oapcontroller.service
+PartOf=oapcontroller.service
+StartLimitIntervalSec=600
+StartLimitBurst=20
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/usr/bin/node /var/opt/dorin-ambient/current/bootstrap.js
+WorkingDirectory=/var/opt/dorin-ambient/current
+UMask=0077
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=20
+LimitCORE=1
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=oapcontroller.service

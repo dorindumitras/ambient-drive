@@ -1,0 +1,2 @@
+'use strict';
+module.exports = {"modes":["sport","sport_individual","comfort","comfort_plus","comfort_individual","adaptive","eco_pro","eco_pro_plus","eco_pro_individual","offroad_ice","offroad_smooth","offroad_grip","offroad_rough","ease","traction_assist","boost","manual"],"colors":[null,"bronze","bronze_white","orange","orange_white","white","blue","blue_white","green","green_white","lilac","lilac_white"]};

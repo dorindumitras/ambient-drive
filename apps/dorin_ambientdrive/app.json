@@ -1,0 +1,200 @@
+{
+  "id": "dorin_ambientdrive",
+  "title": "Ambient Drive",
+  "description": "Schimbă automat culoarea luminii ambientale după modul de condus. Alege separat culori pentru Sport / Sport PLUS, Comfort, Adaptive, Eco Pro și M/S.",
+  "version": "0.2.5",
+  "vendor": "Dorin",
+  "author": "Dorin Dumitras",
+  "loggingId": "DAMB",
+  "iconGlyph": "AD",
+  "nativeGids": [
+    "GID_MYV_LIGHT_INTERIORLIGHT_AMBIENTLIGHTCOLOR_ICON",
+    "GID_MYV_SETTINGS_INTERIORLIGHT_AMBIENTLIGHT_PREVIEW"
+  ],
+  "screens": [
+    {
+      "name": "MAIN",
+      "kind": "menu",
+      "title": "Ambient Drive",
+      "items": [
+        [
+          "checkbox",
+          "ENABLED",
+          "Ambient Drive"
+        ],
+        [
+          "colorpick",
+          "MODE_SPORT",
+          "Sport / Sport PLUS"
+        ],
+        [
+          "colorpick",
+          "MODE_SPORT_INDIVIDUAL",
+          "sport individual"
+        ],
+        [
+          "colorpick",
+          "MODE_COMFORT",
+          "Comfort"
+        ],
+        [
+          "colorpick",
+          "MODE_COMFORT_PLUS",
+          "comfort plus"
+        ],
+        [
+          "colorpick",
+          "MODE_COMFORT_INDIVIDUAL",
+          "comfort individual"
+        ],
+        [
+          "colorpick",
+          "MODE_ADAPTIVE",
+          "Adaptive"
+        ],
+        [
+          "colorpick",
+          "MODE_ECO_PRO",
+          "eco pro"
+        ],
+        [
+          "colorpick",
+          "MODE_ECO_PRO_PLUS",
+          "eco pro plus"
+        ],
+        [
+          "colorpick",
+          "MODE_ECO_PRO_INDIVIDUAL",
+          "eco pro individual"
+        ],
+        [
+          "colorpick",
+          "MODE_OFFROAD_ICE",
+          "offroad ice"
+        ],
+        [
+          "colorpick",
+          "MODE_OFFROAD_SMOOTH",
+          "offroad smooth"
+        ],
+        [
+          "colorpick",
+          "MODE_OFFROAD_GRIP",
+          "offroad grip"
+        ],
+        [
+          "colorpick",
+          "MODE_OFFROAD_ROUGH",
+          "offroad rough"
+        ],
+        [
+          "colorpick",
+          "MODE_EASE",
+          "ease"
+        ],
+        [
+          "colorpick",
+          "MODE_TRACTION_ASSIST",
+          "traction assist"
+        ],
+        [
+          "colorpick",
+          "MODE_BOOST",
+          "boost"
+        ],
+        [
+          "colorpick",
+          "MODE_MANUAL",
+          "manual"
+        ],
+        [
+          "text3",
+          "STATUS",
+          ""
+        ]
+      ],
+      "contentPreview": {
+        "name": "INTERIOR_PREVIEW",
+        "widget": "LT_PreviewTable_1Graphic_1Text"
+      }
+    },
+    {
+      "name": "COLORS",
+      "kind": "list",
+      "title": "Ambient Drive",
+      "contentPreview": {
+        "name": "COLOR_PREVIEW",
+        "widget": "LT_PreviewTable_1Graphic_1Text"
+      },
+      "items": [
+        [
+          "coloroption",
+          "COLOR_NONE",
+          "STANDARD"
+        ],
+        [
+          "coloroption",
+          "COLOR_BRONZE",
+          "bronze"
+        ],
+        [
+          "coloroption",
+          "COLOR_BRONZE_WHITE",
+          "bronze white"
+        ],
+        [
+          "coloroption",
+          "COLOR_ORANGE",
+          "orange"
+        ],
+        [
+          "coloroption",
+          "COLOR_ORANGE_WHITE",
+          "orange white"
+        ],
+        [
+          "coloroption",
+          "COLOR_WHITE",
+          "white"
+        ],
+        [
+          "coloroption",
+          "COLOR_BLUE",
+          "blue"
+        ],
+        [
+          "coloroption",
+          "COLOR_BLUE_WHITE",
+          "blue white"
+        ],
+        [
+          "coloroption",
+          "COLOR_GREEN",
+          "green"
+        ],
+        [
+          "coloroption",
+          "COLOR_GREEN_WHITE",
+          "green white"
+        ],
+        [
+          "coloroption",
+          "COLOR_LILAC",
+          "lilac"
+        ],
+        [
+          "coloroption",
+          "COLOR_LILAC_WHITE",
+          "lilac white"
+        ],
+        [
+          "text3",
+          "COLOR_STATUS",
+          ""
+        ]
+      ]
+    }
+  ],
+  "settings": [],
+  "signals": {}
+}

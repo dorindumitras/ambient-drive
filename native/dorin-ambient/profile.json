@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "vehicle": "BMW G01 plug-in 2020, iDrive 7",
+  "knownModes": [
+    "sport",
+    "comfort",
+    "eco_pro",
+    "manual"
+  ],
+  "pendingSignals": [],
+  "pendingWork": [
+    "oemUIValidation"
+  ],
+  "manualTrigger": "Physical gear lever in M/S; both automatic S and manual M qualify",
+  "bindings": {
+    "manual": {
+      "iface": "de.bmw.powertrain.Powertrain",
+      "field": "dataDisplayGearboxSecure",
+      "instance": "1",
+      "transport": "notification",
+      "path": [
+        "dummy2"
+      ],
+      "trueValues": [
+        "S_MINUS_PROGRAMM",
+        "M_MINUS_PROGRAMM"
+      ],
+      "falseValues": [
+        "DUNKELSCHALTUNG"
+      ],
+      "guards": [
+        {
+          "path": [
+            "dummy4"
+          ],
+          "values": [
+            "D",
+            "P",
+            "N",
+            "R"
+          ]
+        }
+      ],
+      "maxAgeMs": 1500,
+      "evidence": "mgu putty (13).txt: D/S/M/D, 44 matching frames; primary notifications every 100 ms, observed ages 6-73 ms"
+    }
+  },
+  "image": {
+    "source": "Original per-color bitmap layers read from the installed car-specific pack, with native GID fallback",
+    "verifiedRoot": "/mnt/dataro/dataro1/hmi/bmw/id7/assetDB/ContentPreview/Interieur/G01/Interieur_Licht/G02_Settings_Interiorlight",
+    "behavior": "Preview the focused/selected rule color, including original two-tone combinations",
+    "status": "User confirmed original per-color previews in app0.2.4; preview implementation unchanged in0.2.5"
+  },
+  "ui": {
+    "layout": "native left menu and right image",
+    "masterLabel": "Ambient Drive",
+    "sportLabel": "Sport / Sport PLUS",
+    "comfortLabel": "Comfort",
+    "selector": "Native LT_Button_ColorPick opens the left color list with LT_RadioButton_MyV_Settings_Light_1Row and the original right preview",
+    "swatch": "OEM slanted color chip in the mode row",
+    "status": "0.2.4 app confirmed functional by user on G01;0.2.5 adds an independent Adaptive selector. Physical retest pending; G01 has no Adaptive driving mode.",
+    "adaptiveLabel": "Adaptive"
+  },
+  "note": "Service0.2.3 transport context fix was confirmed functional by user. Service0.2.4 changes only the model to separate Adaptive from Comfort, migrates the legacy shared color once and keeps the existing root/socket/transport/persistence mechanisms. Physical0.2.5 and sleep/wake validation remain pending."
+}
