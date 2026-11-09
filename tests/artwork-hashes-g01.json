@@ -1,0 +1,23 @@
+{
+  "packSha256": "5c5a36a5bdff1e40ea624e0dbd3cb47bb720bd1b3596f12b815800d9dcdaa972",
+  "decoder": "Independent system liblz4 LZ4_decompress_safe",
+  "textures": {
+    "G02_MyVehicle_LightInterieur_Ambient_ContentPreview_V001_S02.png": "aa6d01dace1a362de4ab00fdb8636be9500d570d763d650070ea507ae3eb6c0b",
+    "G02_MyVehicle_LightInterieur_Ambient_ContentPreview_V001_S01.png": "ff1308667c2a0439ff53a12b4d0151631581ce9e2b34a939e9de4bf25db1d3a2",
+    "G02_MyVehicle_LightInterieur_Ambient_ContentPreview_V001_S20.png": "18fd5943d0a2250dd0f05594bd74895572fc9f6b1459060264d2199a1d163e60",
+    "G02_MyVehicle_LightInterieur_Ambient_ContentPreview_V001_S22.png": "fbbcb6a38143ae64bb2d13c0e06bb938c24fddc134840fe1562e503520f7b4e2",
+    "G02_MyVehicle_LightInterieur_Ambient_ContentPreview_V001_S04.png": "9116cc7d2a3e1171d991365b80494b4f32bcb862c586af91168335369bf453e7",
+    "G02_MyVehicle_LightInterieur_AmbientBW_ContentPreview_V001_S02.png": "9b7993b4177f36508aa63aad1f8fb1abafc496725ccfdf6f05ad5a18e9fba510",
+    "G02_MyVehicle_LightInterieur_Ambient_ContentPreview_V001_S14.png": "89bb9add20fb0ee8db8957524644fd84d322e2b4a5636912a60afcda33347656",
+    "G02_MyVehicle_LightInterieur_Ambient_ContentPreview_V001_S08.png": "3de384d23ef6a9d726b802a8e46250b0bd68e9696faeb3c5822159ba823240fd",
+    "G02_MyVehicle_LightInterieur_Ambient_ContentPreview_V001_S06.png": "88ae8a6a8f889da5b67a557247928cbfe1dae062b72623d16150f809858dfe33",
+    "G02_MyVehicle_LightInterieur_Ambient_reduziert_ContentPreview_V001_S01.png": "3d9893fd75175ea584121ba72672654a88232f8f902cff7e01a30c3837a468da",
+    "G02_MyVehicle_LightInterieur_Ambient_ContentPreview_V001_S16.png": "671192b50282b790302f12715534829889c3ef6e1b9e59a1145d06cebd9f441b",
+    "G02_MyVehicle_LightInterieur_Ambient_ContentPreview_V001_S18.png": "ed84538494ab6d84fa2ba06d438506c84fb196a79343fea26f3633af6758eba5",
+    "G02_MyVehicle_LightInterieur_AmbientLightSaberBrightness_ContentPreview_V001_S01.png": "a7eeeade3347b4be24b24f7985b7e0039a0409004faa08d8061f71f6cc150499",
+    "G02_MyVehicle_LightInterieur_AmbientLightSaberBrightness_ContentPreview_V001_S02.png": "2fa7ca8d7f0dd752a68b6e6fc381dc06657fe9411aa753d80aa7ff97857b3191",
+    "G02_MyVehicle_LightInterieur_AmbientBW_ContentPreview_V001_S01.png": "91e9a6402418761a9671b8a9c5452afbd5fedc75321c07e3417cebab070a1a35",
+    "G02_MyVehicle_LightInterieur_Ambient_ContentPreview_V001_S10.png": "bc748d4275070ddda76613745e32f5c74a8d9f14773d70e4c38601fd6cff05a3",
+    "G02_MyVehicle_LightInterieur_Ambient_ContentPreview_V001_S12.png": "bc818509e6d3e7f027d6fbe685e12771cf13a37955a97dd2fd551d8b6bd85167"
+  }
+}

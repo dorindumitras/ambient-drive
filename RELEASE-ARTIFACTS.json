@@ -1,0 +1,31 @@
+{
+  "appVersion": "0.2.5",
+  "serviceVersion": "0.2.4",
+  "catalogUrl": "https://github.com/dorindumitras/ambient-drive/releases/download/catalog/catalog.json",
+  "components": [
+    {
+      "id": "dorin-ambient",
+      "version": "0.2.4",
+      "artifact": {
+        "name": "dorin-ambient@0.2.4.tgz",
+        "url": "https://github.com/dorindumitras/ambient-drive/releases/download/catalog/dorin-ambient@0.2.4.tgz",
+        "size": 12470,
+        "sha256": "c910be30ab7b3f50f4bf767b322d2c603520c1dee121912ad7b8e394828c12b6"
+      }
+    },
+    {
+      "id": "dorin_ambientdrive",
+      "version": "0.2.5",
+      "artifact": {
+        "name": "dorin_ambientdrive@0.2.5.tgz",
+        "url": "https://github.com/dorindumitras/ambient-drive/releases/download/catalog/dorin_ambientdrive@0.2.5.tgz",
+        "size": 824346,
+        "sha256": "9ad91d477ed82858480cfbaf71cb5b519b51aeaa6bf0586b8df6695d7af6de6f"
+      }
+    }
+  ],
+  "icon": {
+    "name": "ambient-drive.png",
+    "sha256": "48372523397c31a145d63c9193622db096ffb07b8f18fe4d6034bd7d53f63609"
+  }
+}

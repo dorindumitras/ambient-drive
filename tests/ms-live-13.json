@@ -1,0 +1,1322 @@
+[
+  {
+    "stage": "D_INITIAL",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 34,
+        "aLIV_DataDisplayGearbox": 14,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 54,
+      "source": "notification",
+      "notifications": 256,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_INITIAL",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 153,
+        "aLIV_DataDisplayGearbox": 4,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 63,
+      "source": "notification",
+      "notifications": 261,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_INITIAL",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 214,
+        "aLIV_DataDisplayGearbox": 9,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 63,
+      "source": "notification",
+      "notifications": 266,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_INITIAL",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 34,
+        "aLIV_DataDisplayGearbox": 14,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 63,
+      "source": "notification",
+      "notifications": 271,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_INITIAL",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 153,
+        "aLIV_DataDisplayGearbox": 4,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 64,
+      "source": "notification",
+      "notifications": 276,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_INITIAL",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 214,
+        "aLIV_DataDisplayGearbox": 9,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 66,
+      "source": "notification",
+      "notifications": 281,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_INITIAL",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 34,
+        "aLIV_DataDisplayGearbox": 14,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 69,
+      "source": "notification",
+      "notifications": 286,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_INITIAL",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 153,
+        "aLIV_DataDisplayGearbox": 4,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 68,
+      "source": "notification",
+      "notifications": 291,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_INITIAL",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 214,
+        "aLIV_DataDisplayGearbox": 9,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 73,
+      "source": "notification",
+      "notifications": 296,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_INITIAL",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 34,
+        "aLIV_DataDisplayGearbox": 14,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 70,
+      "source": "notification",
+      "notifications": 301,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_INITIAL",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 153,
+        "aLIV_DataDisplayGearbox": 4,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 53,
+      "source": "notification",
+      "notifications": 306,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_S_AUTO",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 125,
+        "aLIV_DataDisplayGearbox": 0,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "S_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 8,
+      "source": "notification",
+      "notifications": 497,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "S_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_S_AUTO",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 174,
+        "aLIV_DataDisplayGearbox": 5,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "S_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 6,
+      "source": "notification",
+      "notifications": 502,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "S_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_S_AUTO",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 198,
+        "aLIV_DataDisplayGearbox": 10,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "S_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 9,
+      "source": "notification",
+      "notifications": 507,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "S_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_S_AUTO",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 125,
+        "aLIV_DataDisplayGearbox": 0,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "S_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 9,
+      "source": "notification",
+      "notifications": 512,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "S_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_S_AUTO",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 174,
+        "aLIV_DataDisplayGearbox": 5,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "S_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 6,
+      "source": "notification",
+      "notifications": 517,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "S_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_S_AUTO",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 198,
+        "aLIV_DataDisplayGearbox": 10,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "S_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 6,
+      "source": "notification",
+      "notifications": 522,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "S_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_S_AUTO",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 125,
+        "aLIV_DataDisplayGearbox": 0,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "S_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 9,
+      "source": "notification",
+      "notifications": 527,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "S_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_S_AUTO",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 174,
+        "aLIV_DataDisplayGearbox": 5,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "S_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 8,
+      "source": "notification",
+      "notifications": 532,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "S_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_S_AUTO",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 198,
+        "aLIV_DataDisplayGearbox": 10,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "S_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 7,
+      "source": "notification",
+      "notifications": 537,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "S_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_S_AUTO",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 125,
+        "aLIV_DataDisplayGearbox": 0,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "S_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 12,
+      "source": "notification",
+      "notifications": 542,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "S_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_S_AUTO",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 174,
+        "aLIV_DataDisplayGearbox": 5,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "S_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 7,
+      "source": "notification",
+      "notifications": 547,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "S_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_M_MANUAL",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 215,
+        "aLIV_DataDisplayGearbox": 11,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "M_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 35,
+      "source": "notification",
+      "notifications": 733,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "M_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_M_MANUAL",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 108,
+        "aLIV_DataDisplayGearbox": 1,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "M_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 36,
+      "source": "notification",
+      "notifications": 738,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "M_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_M_MANUAL",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 152,
+        "aLIV_DataDisplayGearbox": 6,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "M_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 38,
+      "source": "notification",
+      "notifications": 743,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "M_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_M_MANUAL",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 215,
+        "aLIV_DataDisplayGearbox": 11,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "M_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 37,
+      "source": "notification",
+      "notifications": 748,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "M_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_M_MANUAL",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 108,
+        "aLIV_DataDisplayGearbox": 1,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "M_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 32,
+      "source": "notification",
+      "notifications": 753,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "M_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_M_MANUAL",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 152,
+        "aLIV_DataDisplayGearbox": 6,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "M_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 36,
+      "source": "notification",
+      "notifications": 758,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "M_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_M_MANUAL",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 215,
+        "aLIV_DataDisplayGearbox": 11,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "M_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 39,
+      "source": "notification",
+      "notifications": 763,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "M_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_M_MANUAL",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 108,
+        "aLIV_DataDisplayGearbox": 1,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "M_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 36,
+      "source": "notification",
+      "notifications": 768,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "M_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_M_MANUAL",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 152,
+        "aLIV_DataDisplayGearbox": 6,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "M_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 37,
+      "source": "notification",
+      "notifications": 773,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "M_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_M_MANUAL",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 215,
+        "aLIV_DataDisplayGearbox": 11,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "M_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 42,
+      "source": "notification",
+      "notifications": 778,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "M_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "MS_M_MANUAL",
+    "manual": true,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 108,
+        "aLIV_DataDisplayGearbox": 1,
+        "dummy1": "_1_P_GANG",
+        "dummy2": "M_MINUS_PROGRAMM",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 33,
+      "source": "notification",
+      "notifications": 783,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "M_MINUS_PROGRAMM",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_RETURN",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 109,
+        "aLIV_DataDisplayGearbox": 3,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 40,
+      "source": "notification",
+      "notifications": 965,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_RETURN",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 75,
+        "aLIV_DataDisplayGearbox": 8,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 42,
+      "source": "notification",
+      "notifications": 970,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_RETURN",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 152,
+        "aLIV_DataDisplayGearbox": 13,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 44,
+      "source": "notification",
+      "notifications": 975,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_RETURN",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 109,
+        "aLIV_DataDisplayGearbox": 3,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 44,
+      "source": "notification",
+      "notifications": 980,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_RETURN",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 75,
+        "aLIV_DataDisplayGearbox": 8,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 46,
+      "source": "notification",
+      "notifications": 985,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_RETURN",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 152,
+        "aLIV_DataDisplayGearbox": 13,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 46,
+      "source": "notification",
+      "notifications": 990,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_RETURN",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 109,
+        "aLIV_DataDisplayGearbox": 3,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 44,
+      "source": "notification",
+      "notifications": 995,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_RETURN",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 75,
+        "aLIV_DataDisplayGearbox": 8,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 47,
+      "source": "notification",
+      "notifications": 1000,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_RETURN",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 152,
+        "aLIV_DataDisplayGearbox": 13,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 50,
+      "source": "notification",
+      "notifications": 1005,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_RETURN",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 109,
+        "aLIV_DataDisplayGearbox": 3,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 48,
+      "source": "notification",
+      "notifications": 1010,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  },
+  {
+    "stage": "D_RETURN",
+    "manual": false,
+    "sample": {
+      "value": {
+        "cRC_DataDisplayGearbox": 75,
+        "aLIV_DataDisplayGearbox": 8,
+        "dummy1": "DUNKELSCHALTUNG",
+        "dummy2": "DUNKELSCHALTUNG",
+        "dummy3": "NICHT_BLINKEN",
+        "dummy4": "D",
+        "dummy5": "SIGNAL_UNGUELTIG",
+        "dummy6": "SIGNAL_UNGUELTIG",
+        "dummy7": "DUNKELSCHALTUNG",
+        "dummy8": "SIGNAL_UNGUELTIG",
+        "statusAvailabilityInterventionPowertrainGearbox": "SIGNAL_UNBEFUELLT",
+        "gap1": 3
+      },
+      "ageMs": 44,
+      "source": "notification",
+      "notifications": 1015,
+      "getterReads": 0,
+      "available": true
+    },
+    "secondary": {
+      "displayProgramGearbox": "DUNKELSCHALTUNG",
+      "displayDriveLogicGearbox": "SIGNAL_UNGUELTIG"
+    },
+    "fes": "COMFORT"
+  }
+]

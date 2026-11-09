@@ -1,0 +1,35 @@
+{
+  "orange": {
+    "statusHueInteriorLighting": 10,
+    "statusMenuAmbientePanoramicRoofInteriorLighting": "FARBAUSWAHL_5",
+    "statusHueValueLayer1IndividualGroup": 2,
+    "statusHueValueLayer2IndividualGroup": 255,
+    "statusHueValueLayer3IndividualGroup": 255,
+    "statusBrightnessValueBrightnessOffsetAmbientePanoramicRoofInteriorLighting": 254,
+    "statusModeAmbientePanoramicRoofInteriorLighting": "EIN",
+    "statusDynamicInteriorLighting": "AUS",
+    "statusDynamicAmbienteIinteriorLighting": "SIGNAL_UNBEFUELLT"
+  },
+  "green": {
+    "statusHueInteriorLighting": 128,
+    "statusMenuAmbientePanoramicRoofInteriorLighting": "FARBAUSWAHL_10",
+    "statusHueValueLayer1IndividualGroup": 2,
+    "statusHueValueLayer2IndividualGroup": 255,
+    "statusHueValueLayer3IndividualGroup": 255,
+    "statusBrightnessValueBrightnessOffsetAmbientePanoramicRoofInteriorLighting": 254,
+    "statusModeAmbientePanoramicRoofInteriorLighting": "EIN",
+    "statusDynamicInteriorLighting": "AUS",
+    "statusDynamicAmbienteIinteriorLighting": "SIGNAL_UNBEFUELLT"
+  },
+  "blue": {
+    "statusHueInteriorLighting": 199,
+    "statusMenuAmbientePanoramicRoofInteriorLighting": "FARBAUSWAHL_8",
+    "statusHueValueLayer1IndividualGroup": 2,
+    "statusHueValueLayer2IndividualGroup": 255,
+    "statusHueValueLayer3IndividualGroup": 255,
+    "statusBrightnessValueBrightnessOffsetAmbientePanoramicRoofInteriorLighting": 254,
+    "statusModeAmbientePanoramicRoofInteriorLighting": "EIN",
+    "statusDynamicInteriorLighting": "AUS",
+    "statusDynamicAmbienteIinteriorLighting": "SIGNAL_UNBEFUELLT"
+  }
+}

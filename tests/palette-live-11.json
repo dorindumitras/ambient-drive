@@ -1,0 +1,209 @@
+[
+  {
+    "key": "bronze",
+    "label": "Bronz",
+    "value": {
+      "statusHueInteriorLighting": 27,
+      "statusMenuAmbientePanoramicRoofInteriorLighting": "FARBAUSWAHL_3",
+      "statusHueValueLayer1IndividualGroup": 2,
+      "statusHueValueLayer2IndividualGroup": 255,
+      "statusHueValueLayer3IndividualGroup": 255,
+      "statusBrightnessValueBrightnessOffsetAmbientePanoramicRoofInteriorLighting": 254,
+      "statusModeAmbientePanoramicRoofInteriorLighting": "EIN",
+      "statusDynamicInteriorLighting": "AUS",
+      "statusDynamicAmbienteIinteriorLighting": "SIGNAL_UNBEFUELLT"
+    },
+    "readConfirmed": true,
+    "writeConfirmed": false,
+    "matchingSamples": 3,
+    "source": "citire culori mgu.txt / compressed report"
+  },
+  {
+    "key": "bronze_white",
+    "label": "Bronz-Alb",
+    "value": {
+      "statusHueInteriorLighting": 120,
+      "statusMenuAmbientePanoramicRoofInteriorLighting": "FARBAUSWAHL_4",
+      "statusHueValueLayer1IndividualGroup": 2,
+      "statusHueValueLayer2IndividualGroup": 255,
+      "statusHueValueLayer3IndividualGroup": 255,
+      "statusBrightnessValueBrightnessOffsetAmbientePanoramicRoofInteriorLighting": 254,
+      "statusModeAmbientePanoramicRoofInteriorLighting": "EIN",
+      "statusDynamicInteriorLighting": "AUS",
+      "statusDynamicAmbienteIinteriorLighting": "SIGNAL_UNBEFUELLT"
+    },
+    "readConfirmed": true,
+    "writeConfirmed": false,
+    "matchingSamples": 3,
+    "source": "citire culori mgu.txt / compressed report"
+  },
+  {
+    "key": "orange",
+    "label": "Portocaliu",
+    "value": {
+      "statusHueInteriorLighting": 10,
+      "statusMenuAmbientePanoramicRoofInteriorLighting": "FARBAUSWAHL_5",
+      "statusHueValueLayer1IndividualGroup": 2,
+      "statusHueValueLayer2IndividualGroup": 255,
+      "statusHueValueLayer3IndividualGroup": 255,
+      "statusBrightnessValueBrightnessOffsetAmbientePanoramicRoofInteriorLighting": 254,
+      "statusModeAmbientePanoramicRoofInteriorLighting": "EIN",
+      "statusDynamicInteriorLighting": "AUS",
+      "statusDynamicAmbienteIinteriorLighting": "SIGNAL_UNBEFUELLT"
+    },
+    "readConfirmed": true,
+    "writeConfirmed": true,
+    "source": "Earlier live calibration and foreground automation confirmed by user"
+  },
+  {
+    "key": "orange_white",
+    "label": "Portocaliu-Alb",
+    "value": {
+      "statusHueInteriorLighting": 120,
+      "statusMenuAmbientePanoramicRoofInteriorLighting": "FARBAUSWAHL_6",
+      "statusHueValueLayer1IndividualGroup": 2,
+      "statusHueValueLayer2IndividualGroup": 255,
+      "statusHueValueLayer3IndividualGroup": 255,
+      "statusBrightnessValueBrightnessOffsetAmbientePanoramicRoofInteriorLighting": 254,
+      "statusModeAmbientePanoramicRoofInteriorLighting": "EIN",
+      "statusDynamicInteriorLighting": "AUS",
+      "statusDynamicAmbienteIinteriorLighting": "SIGNAL_UNBEFUELLT"
+    },
+    "readConfirmed": true,
+    "writeConfirmed": false,
+    "matchingSamples": 3,
+    "source": "citire culori mgu.txt / compressed report"
+  },
+  {
+    "key": "white",
+    "label": "Alb",
+    "value": {
+      "statusHueInteriorLighting": 120,
+      "statusMenuAmbientePanoramicRoofInteriorLighting": "FARBAUSWAHL_7",
+      "statusHueValueLayer1IndividualGroup": 2,
+      "statusHueValueLayer2IndividualGroup": 255,
+      "statusHueValueLayer3IndividualGroup": 255,
+      "statusBrightnessValueBrightnessOffsetAmbientePanoramicRoofInteriorLighting": 254,
+      "statusModeAmbientePanoramicRoofInteriorLighting": "EIN",
+      "statusDynamicInteriorLighting": "AUS",
+      "statusDynamicAmbienteIinteriorLighting": "SIGNAL_UNBEFUELLT"
+    },
+    "readConfirmed": true,
+    "writeConfirmed": false,
+    "matchingSamples": 3,
+    "source": "citire culori mgu.txt / compressed report"
+  },
+  {
+    "key": "blue",
+    "label": "Albastru",
+    "value": {
+      "statusHueInteriorLighting": 199,
+      "statusMenuAmbientePanoramicRoofInteriorLighting": "FARBAUSWAHL_8",
+      "statusHueValueLayer1IndividualGroup": 2,
+      "statusHueValueLayer2IndividualGroup": 255,
+      "statusHueValueLayer3IndividualGroup": 255,
+      "statusBrightnessValueBrightnessOffsetAmbientePanoramicRoofInteriorLighting": 254,
+      "statusModeAmbientePanoramicRoofInteriorLighting": "EIN",
+      "statusDynamicInteriorLighting": "AUS",
+      "statusDynamicAmbienteIinteriorLighting": "SIGNAL_UNBEFUELLT"
+    },
+    "readConfirmed": true,
+    "writeConfirmed": true,
+    "source": "Earlier live calibration and foreground automation confirmed by user"
+  },
+  {
+    "key": "blue_white",
+    "label": "Albastru-Alb",
+    "value": {
+      "statusHueInteriorLighting": 120,
+      "statusMenuAmbientePanoramicRoofInteriorLighting": "FARBAUSWAHL_9",
+      "statusHueValueLayer1IndividualGroup": 2,
+      "statusHueValueLayer2IndividualGroup": 255,
+      "statusHueValueLayer3IndividualGroup": 255,
+      "statusBrightnessValueBrightnessOffsetAmbientePanoramicRoofInteriorLighting": 254,
+      "statusModeAmbientePanoramicRoofInteriorLighting": "EIN",
+      "statusDynamicInteriorLighting": "AUS",
+      "statusDynamicAmbienteIinteriorLighting": "SIGNAL_UNBEFUELLT"
+    },
+    "readConfirmed": true,
+    "writeConfirmed": false,
+    "matchingSamples": 3,
+    "source": "citire culori mgu.txt / compressed report"
+  },
+  {
+    "key": "green",
+    "label": "Verde",
+    "value": {
+      "statusHueInteriorLighting": 128,
+      "statusMenuAmbientePanoramicRoofInteriorLighting": "FARBAUSWAHL_10",
+      "statusHueValueLayer1IndividualGroup": 2,
+      "statusHueValueLayer2IndividualGroup": 255,
+      "statusHueValueLayer3IndividualGroup": 255,
+      "statusBrightnessValueBrightnessOffsetAmbientePanoramicRoofInteriorLighting": 254,
+      "statusModeAmbientePanoramicRoofInteriorLighting": "EIN",
+      "statusDynamicInteriorLighting": "AUS",
+      "statusDynamicAmbienteIinteriorLighting": "SIGNAL_UNBEFUELLT"
+    },
+    "readConfirmed": true,
+    "writeConfirmed": true,
+    "source": "Earlier live calibration and foreground automation confirmed by user"
+  },
+  {
+    "key": "green_white",
+    "label": "Verde-Alb",
+    "value": {
+      "statusHueInteriorLighting": 120,
+      "statusMenuAmbientePanoramicRoofInteriorLighting": "FARBAUSWAHL_11",
+      "statusHueValueLayer1IndividualGroup": 2,
+      "statusHueValueLayer2IndividualGroup": 255,
+      "statusHueValueLayer3IndividualGroup": 255,
+      "statusBrightnessValueBrightnessOffsetAmbientePanoramicRoofInteriorLighting": 254,
+      "statusModeAmbientePanoramicRoofInteriorLighting": "EIN",
+      "statusDynamicInteriorLighting": "AUS",
+      "statusDynamicAmbienteIinteriorLighting": "SIGNAL_UNBEFUELLT"
+    },
+    "readConfirmed": true,
+    "writeConfirmed": false,
+    "matchingSamples": 3,
+    "source": "citire culori mgu.txt / compressed report"
+  },
+  {
+    "key": "lilac",
+    "label": "Lila",
+    "value": {
+      "statusHueInteriorLighting": 258,
+      "statusMenuAmbientePanoramicRoofInteriorLighting": "FARBAUSWAHL_12",
+      "statusHueValueLayer1IndividualGroup": 2,
+      "statusHueValueLayer2IndividualGroup": 255,
+      "statusHueValueLayer3IndividualGroup": 255,
+      "statusBrightnessValueBrightnessOffsetAmbientePanoramicRoofInteriorLighting": 254,
+      "statusModeAmbientePanoramicRoofInteriorLighting": "EIN",
+      "statusDynamicInteriorLighting": "AUS",
+      "statusDynamicAmbienteIinteriorLighting": "SIGNAL_UNBEFUELLT"
+    },
+    "readConfirmed": true,
+    "writeConfirmed": false,
+    "matchingSamples": 3,
+    "source": "citire culori mgu.txt / compressed report"
+  },
+  {
+    "key": "lilac_white",
+    "label": "Lila-Alb",
+    "value": {
+      "statusHueInteriorLighting": 120,
+      "statusMenuAmbientePanoramicRoofInteriorLighting": "INDIVIDUALMODUS",
+      "statusHueValueLayer1IndividualGroup": 2,
+      "statusHueValueLayer2IndividualGroup": 255,
+      "statusHueValueLayer3IndividualGroup": 255,
+      "statusBrightnessValueBrightnessOffsetAmbientePanoramicRoofInteriorLighting": 254,
+      "statusModeAmbientePanoramicRoofInteriorLighting": "EIN",
+      "statusDynamicInteriorLighting": "AUS",
+      "statusDynamicAmbienteIinteriorLighting": "SIGNAL_UNBEFUELLT"
+    },
+    "readConfirmed": true,
+    "writeConfirmed": false,
+    "matchingSamples": 6,
+    "source": "eroare cand am incerca sa citesct culoarea Lila-Alb.txt / compressed report",
+    "validationNote": "The v4 probe incorrectly rejected INDIVIDUALMODUS. All six original observations are identical and valid under the corrected validator; no new vehicle read was performed."
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "schema": 2,
+  "enabled": true,
+  "rules": {
+    "sport": "orange",
+    "sport_individual": null,
+    "comfort": "lilac_white",
+    "comfort_plus": null,
+    "comfort_individual": null,
+    "eco_pro": "blue",
+    "eco_pro_plus": null,
+    "eco_pro_individual": null,
+    "offroad_ice": null,
+    "offroad_smooth": null,
+    "offroad_grip": null,
+    "offroad_rough": null,
+    "ease": null,
+    "traction_assist": null,
+    "boost": null,
+    "manual": "orange_white"
+  },
+  "seenModes": [
+    "sport",
+    "comfort",
+    "eco_pro"
+  ]
+}

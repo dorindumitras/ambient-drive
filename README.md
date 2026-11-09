@@ -33,3 +33,11 @@ Local migration, rule, IPC, service restart, UI and package checks passed. Previ
 No BMW SDK, executable, private keys or extracted artwork is distributed. Own code uses MIT; retain the included notices. See LICENSE.kit for the application kit license.
 
 [MGU Store](https://github.com/robertnisipeanu/mgu-store) · [Publishing format](https://github.com/robertnisipeanu/mgu-store/blob/main/docs/PUBLISHING.md)
+
+## Source code and development
+
+The complete app, service, runtime kit, build scripts and regression tests are in `apps/`, `native/`, `kit/`, `tools/` and `tests/`. See [BUILDING.md](BUILDING.md) for a clean build and verification, and [INSTALL.md](INSTALL.md) for installation. The release catalog remains the installation source; select **Releases** in MGU Store.
+
+App source: [apps/dorin_ambientdrive](apps/dorin_ambientdrive). Service source: [native/dorin-ambient](native/dorin-ambient). Package hashes are recorded in [RELEASE-ARTIFACTS.json](RELEASE-ARTIFACTS.json).
+
+The named source ZIP attached to a release is the complete source snapshot. GitHub's automatic source archives reflect the commit of their particular tag; the `catalog` tag is the distribution index and can refer to an earlier commit. For versioned source snapshots use a tag created after the source files have been committed.
