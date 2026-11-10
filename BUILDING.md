@@ -1,6 +1,6 @@
 # Build and verify Ambient Drive
 
-This source snapshot corresponds to app **0.2.5** and service **0.2.4**. It contains the application code, service, runtime kit, font resources and license notices, build scripts and product regression tests. No BMW SDK, native binary or original vehicle artwork is included.
+This source snapshot corresponds to app **0.2.6** and service **0.2.5**. It contains the application code, service, runtime kit, font resources and license notices, build scripts and product regression tests. No BMW SDK, native binary or original vehicle artwork is included.
 
 ## Desktop requirements
 
@@ -24,8 +24,8 @@ Outputs:
 validation/USB/mgu-repo/ambient-drive-test/
   catalog.json
   ambient-drive.png
-  dorin-ambient@0.2.4.tgz
-  dorin_ambientdrive@0.2.5.tgz
+  dorin-ambient@0.2.5.tgz
+  dorin_ambientdrive@0.2.6.tgz
 ```
 
 The generated local catalog uses relative URLs for USB installation. The public catalog uses absolute GitHub release URLs. The artifact bytes and their checksums are the same for this audited source snapshot.
@@ -40,7 +40,7 @@ After building:
 python3 tools/test.py
 ```
 
-This runs 11 JavaScript regression suites and checks the native UI, package contents and published artifact hashes. The tests exercise local fakes, temporary files and Unix sockets. They do not load BMW binaries or contact a car. `tools/verify-published.py` compares against the versioned checksums in `RELEASE-ARTIFACTS.json` without downloading anything.
+This runs 12 JavaScript regression suites and checks the native UI, package contents and published artifact hashes. The tests exercise local fakes, temporary files and Unix sockets. They do not load BMW binaries or contact a car. `tools/verify-published.py` compares against the versioned checksums in `RELEASE-ARTIFACTS.json` without downloading anything.
 
 The source audit rebuilt both published packages byte for byte on the recorded audit host. That result is evidence for this snapshot; physical vehicle operation remains a separate check. When deliberately changing product code, increment the relevant component version and record the new artifact hashes rather than replacing bytes under an existing version.
 
@@ -53,3 +53,21 @@ The source audit rebuilt both published packages byte for byte on the recorded a
 - `tests/`: product tests and bounded fixtures, with no original BMW image pack.
 
 See [INSTALL.md](INSTALL.md) for using published packages and [docs/COMPATIBILITY.md](docs/COMPATIBILITY.md) for the current vehicle scope.
+
+## Prepare complete deliverables
+
+After building and passing the tests:
+
+```sh
+python3 tools/prepare-publication.py
+```
+
+This writes `publication/Ambient-Drive-0.2.6-Stick.zip` and `publication/Ambient-Drive-0.2.6-GitHub-Complet.zip`. The latter includes the full repository, named source ZIP, both prebuilt packages, approved icon, absolute-URL catalog, source inventory and checksums. No network request or GitHub mutation occurs. See [docs/PUBLISHING-RO.md](docs/PUBLISHING-RO.md).
+
+The optional integration check uses the official MGU Store `sources.js`, `catalog.js` and `tar.js` modules, obtained separately from the pinned revision recorded in [docs/PUBLICATION-AUDIT.md](docs/PUBLICATION-AUDIT.md):
+
+```sh
+node tools/check-store-reader.js /absolute/path/to/pinned-official-reader
+```
+
+It tests fresh installation and upgrade listing, anonymous GitHub/HTTPS resolution, USB files, metadata, dependencies, hashes and archive parsing. Its HTTP adapter serves the candidate files at their intended URLs locally. It does not claim that unpublished assets are already downloadable or install anything on a vehicle. Generated `publication/` is excluded from source snapshots.

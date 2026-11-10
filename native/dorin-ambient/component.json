@@ -1,7 +1,7 @@
 {
   "id": "dorin-ambient",
   "kind": "tool",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "title": "Ambient Drive Service",
   "description": "Aplică regulile de culoare și păstrează setările Ambient Drive între porniri. Componentă necesară aplicației Ambient Drive.",
   "mguHmi": [

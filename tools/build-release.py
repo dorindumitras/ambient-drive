@@ -11,6 +11,7 @@ import shutil
 import subprocess
 import tarfile
 import zipfile
+from source_files import source_zip as write_source_zip
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'release'
@@ -36,7 +37,7 @@ def sha(data):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--validation', action='store_true', help='Private on-car validation package; never a public release')
+    parser.add_argument('--validation', action='store_true', help='Build a test candidate while on-car validation is pending')
     args = parser.parse_args()
     global OUT, USB
     if args.validation:
@@ -98,11 +99,7 @@ def main():
     if args.validation:
         shutil.copyfile(ROOT / 'TEST-PE-MGU.md', OUT / 'TEST-PE-MGU.md')
     source_zip = OUT / ('Ambient-Drive-' + app_version + '-surse.zip')
-    with zipfile.ZipFile(source_zip, 'w', zipfile.ZIP_DEFLATED) as archive:
-        for p in sorted(ROOT.rglob('*')):
-            if not p.is_file() or any(part in {'release', 'validation', 'dist', '__pycache__', '.git'} for part in p.relative_to(ROOT).parts):
-                continue
-            archive.write(p, 'ambient-drive/' + str(p.relative_to(ROOT)))
+    write_source_zip(ROOT, source_zip)
     result = OUT / ('Ambient-Drive-' + app_version + ('-Test-MGU.zip' if args.validation else '-MGU-Store.zip'))
     with zipfile.ZipFile(result, 'w', zipfile.ZIP_DEFLATED) as archive:
         for p in sorted((OUT / 'USB').rglob('*')):
@@ -111,7 +108,7 @@ def main():
         archive.write(OUT / 'CITESTE-MA.md', 'CITESTE-MA.md')
         if args.validation:
             archive.write(OUT / 'TEST-PE-MGU.md', 'TEST-PE-MGU.md')
-            archive.writestr('VALIDARE-NEFINALIZATA.txt', 'Pachet privat de test. Validarea pe MGU este nefinalizata; nu publica acest pachet.\n')
+            archive.writestr('VALIDARE-PE-MASINA.txt', 'Versiune de test. Verificarile locale nu inlocuiesc testul pe MGU si sleep/wake.\n')
         archive.write(source_zip, source_zip.name)
     print(result)
 

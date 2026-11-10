@@ -1,9 +1,39 @@
 {
   "schema": 1,
   "components": [
-    {"id": "dorin-ambient", "kind": "tool", "path": "native/dorin-ambient", "uninstallable": true, "mguHmi": ["ID7"], "requires": {"mgu-deploy": "0.7.11"}},
-    {"id": "dorin_ambientdrive", "kind": "app", "path": "apps/dorin_ambientdrive", "title": "Ambient Drive", "version": "0.2.5", "mguHmi": ["ID7"],
-      "requires": {"dorin-ambient": "0.2.4", "mgu-deploy": "0.7.11", "mgu-python": "1.0.2"},
-      "build": {"python": "tools/build-native.py", "args": ["{id}"], "output": "dist/{id}@{version}.tgz"}}
+    {
+      "id": "dorin-ambient",
+      "kind": "tool",
+      "path": "native/dorin-ambient",
+      "uninstallable": true,
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.11"
+      }
+    },
+    {
+      "id": "dorin_ambientdrive",
+      "kind": "app",
+      "path": "apps/dorin_ambientdrive",
+      "title": "Ambient Drive",
+      "version": "0.2.6",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "dorin-ambient": "0.2.5",
+        "mgu-deploy": "0.7.11",
+        "mgu-python": "1.0.2"
+      },
+      "build": {
+        "python": "tools/build-native.py",
+        "args": [
+          "{id}"
+        ],
+        "output": "dist/{id}@{version}.tgz"
+      }
+    }
   ]
 }

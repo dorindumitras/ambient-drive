@@ -4,7 +4,9 @@ A native iDrive7 app that changes ambient lighting according to the driving mode
 
 ![Ambient Drive](ambient-drive.png)
 
-Choose independent colors for **Sport / Sport PLUS**, **Comfort**, **Adaptive**, **Eco Pro** and **M/S**, or select **STANDARD** to send no color command for that rule. M/S takes priority while the lever is in M/S. Sport and Sport PLUS share one rule; Comfort and Adaptive are independent. Electric/Hybrid switching is not included.
+Choose independent colors in this order: **Sport**, **Sport Plus**, **Sport Individual**, **Comfort**, **Adaptive**, **Eco Pro**, **Eco Pro Individual**, **M/S**. Select **STANDARD** to send no color command for that rule. M/S takes priority while the lever is in M/S, including S and manual M gears. Electric/Hybrid switching is not included.
+
+These eight selectors are always visible. Additional supported signals such as Comfort Plus, Comfort Individual, Eco Pro Plus and off-road modes appear after them only when reported by the car. Configuring a row never enables a driving mode in the vehicle. Screenshots below are from an earlier UI version.
 
 The native interface follows the iDrive language and uses the car's installed preview resources. Selections save immediately and the picker remains open until Back.
 
@@ -14,13 +16,13 @@ The native interface follows the iDrive language and uses the car's installed pr
 
 In MGU Store use **Settings → Add source**, enter **dorindumitras/ambient-drive**, choose **Releases**, then **Check now**. Open Ambient Drive. Its service dependency is installed first when needed.
 
-Current packages: app **0.2.5**, service **0.2.4**. Requires iDrive7, MGU Store and mgu-deploy0.7.11 or newer.
+Current packages: app **0.2.6**, service **0.2.5**. Requires iDrive7, MGU Store and mgu-deploy0.7.11 or newer.
 
 <img width="4032" height="2268" alt="Ambient-Drive" src="https://github.com/user-attachments/assets/c1a8ae94-bfff-4ddb-949e-c837f072d902" />
 
 ## Upgrade
 
-Update both packages without uninstalling or clearing settings. The previous shared Comfort / Adaptive color initializes both rows, including STANDARD. Further changes are independent. The enable state and other rules are preserved.
+Update both packages without uninstalling or clearing settings. The previous shared Sport / Sport PLUS color initializes Sport Plus once, including STANDARD. Sport and Sport Plus then save independent choices. Existing Individual, Comfort, Adaptive, Eco Pro and M/S choices and the enable state are preserved. Upgrading from older shared Comfort / Adaptive versions also retains their one-time migration.
 
 The Adaptive row is configurable before that driving mode is observed. Its lighting rule applies only when the vehicle reports ADAPTIVE; this app does not add Adaptive driving mode to a vehicle.
 
@@ -28,7 +30,7 @@ The Adaptive row is configurable before that driving mode is observed. Its light
 
 ## Test status
 
-Local migration, rule, IPC, service restart, UI and package checks passed. Previous app0.2.4 was reported functional by the user on a BMW G01 plug-in2020. App0.2.5 awaits on-car retesting. Full vehicle sleep/wake retention and physical operation of Adaptive on an equipped car remain unconfirmed. The user's G01 has no Adaptive mode. Other models and firmware have not been physically validated. This is a test release.
+Local migration, rule, IPC, service restart, UI and package checks passed. Previous app0.2.4 was reported functional by the user on a BMW G01 plug-in2020. App0.2.6 / service0.2.5 passed local verification and await on-car retesting. Sport Plus and Individual modes require a car that actually reports their corresponding FES signals. Full vehicle sleep/wake retention and physical operation of the additional modes, including Adaptive on an equipped car remain unconfirmed. The user's G01 has no Adaptive mode. Other models and firmware have not been physically validated. This is a test release.
 
 No BMW SDK, executable, private keys or extracted artwork is distributed. Own code uses MIT; retain the included notices. See LICENSE.kit for the application kit license.
 

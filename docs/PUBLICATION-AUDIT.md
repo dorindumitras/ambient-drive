@@ -1,30 +1,25 @@
-# Audit GitHub Ambient Drive — 9 noiembrie 2026
+# Ambient Drive0.2.6 verification
 
-Repository verificat: https://github.com/dorindumitras/ambient-drive
+App **0.2.6**, service **0.2.5**. Prepared for the existing `dorindumitras/ambient-drive` Store source and `catalog` release. Status: locally verified test candidate. Public release checks are recorded separately after deployment.
 
-## Rezultat
+## Product regression
 
-- Repository-ul public main are exact patru fișiere: LICENSE, LICENSE.kit, README.md și ambient-drive.png. Directoarele sursă apps, native, kit, tools și tests lipsesc.
-- Release-ul catalog este public, cu tagul corect și fără marcaj pre-release. Catalogul, pictograma și cele două arhive se descarcă fără autentificare.
-- Arhivele instalabile corespund exact versiunii locale: aplicație 0.2.5 și serviciu 0.2.4. Dimensiunile și hashurile sunt corecte.
-- Cele 39 de module JavaScript din arhive sunt parsabile ca ES2017. Nu s-au găsit importuri relative fără fișier. Fișierele de pornire, unitatea serviciului, manifestele, controalele și cele 33 de locale sunt prezente.
-- Cod JavaScript există în arhivele instalabile, însă proiectul complet care permite compilarea și testarea nu este publicat pe main.
-- Arhiva automată Source code (zip) a release-ului catalog conține tot numai cele patru fișiere de prezentare. Acea arhivă este un snapshot al tagului, nu o extragere a codului din fișierele .tgz atașate.
+All **15** regression/build checks passed: rules, UI, Adaptive migration, Sport split migration, service, transport startup, native swatches, native focus, STANDARD graphic, artwork, image result, recorded bindings, native layout, complete release and frozen artifact hashes. All eight primary modes were exercised with all11calibrated colors plus STANDARD. Migration checks include enabled and disabled states, a missing Sport Plus key, explicit STANDARD, independent choices and temporary Unix-socket/disk service restart. The accepted startup widgets/properties were compared to0.2.4, allowing only the new rows and required row ordering. Labels/references cover33HMI locales.
 
-## Corecția pregătită
+Twelve critical files remain byte-identical to0.2.5: UI main, artwork, native focus/preview/swatches, UI client, controller, vehicle driver, settings store, socket group, bootstrap and service unit.
 
-Pachetul repository conține proiectul complet, testele active, kitul, licențele, documentația de instalare și compilare. README-ul păstrează cele trei imagini adăugate de utilizator și adaugă legăturile către surse.
+## Store integration
 
-O compilare din acest dosar curat a reprodus exact cele două arhive publice. Au trecut toate cele 14 verificări din tools/test.py. Detaliile hashurilor sunt în RELEASE-ARTIFACTS.json.
+The official MGU Store reader at commit **5bf4aa6da0d2af82b59385ba97b9a8091f0a3d9d** accepted all three prepared layouts: anonymous GitHub Releases, direct HTTPS catalog and USB folder. Both components list as `available` for a new installation and `update` over app0.2.5/service0.2.4. Package identity/version, full author, ID7 compatibility, dependency on service0.2.5, archive parsing, component file hashes, sizes, approved icon and absence of the BMW SDK passed. USB made no network requests.
 
-Host audit: Node v23.11.0, Python 3.13.5, Darwin.
+The network adapter served the candidate files locally at their intended public URLs. This establishes reader compatibility; it does not claim a live download of unpublished0.2.6 assets or execute a vehicle install. Reader modules/provenance and machine-readable results were retained with the local delivery audit.
 
-Pachetele instalabile nu sunt modificate de această completare a surselor. Nu se schimbă versiunile aplicației sau serviciului.
+## Complete source and publication
 
-## Limitele verificării
+The full source tree contains **113** files, including application, service, kit, font licenses, build scripts, tests, docs, metadata and hidden .gitignore. The named source ZIP and repository directory contain the same files. Both install artifacts and the icon have frozen checksums in RELEASE-ARTIFACTS.json. The GitHub bundle includes those artifacts, the absolute-URL catalog, the complete named source ZIP, checksums and publication instructions. The USB catalog resolves relative paths to the same archive bytes.
 
-Nu a fost executat codul descărcat de pe GitHub; arhivele au fost inspectate static și comparate cu sursele locale. Testele locale folosesc date simulate și socketuri temporare, fără conectare la mașină. Sunt încă neconfirmate retestul fizic 0.2.5, sleep/wake complet și alte modele/firmware. Serviciul folosește modulele și configurațiile SOME/IP existente pe MGU; disponibilitatea lor trebuie validată pe o unitate nouă.
+The existing public main tree was read at commit **f800ffcb4fd797d6fb53647588a457bbaa35dd57** before this update and matched all106previous source files; all README screenshot URLs were retained. Online installation uses the complete source tree plus the two prepared install assets, icon and absolute-URL catalog attached to the existing catalog release.
 
-Cele trei URL-uri ale pozelor din README au fost păstrate. Verificarea lor prin cereri HTTP HEAD a primit 403 din mediul de audit, deci acest control nu stabilește dacă pozele sunt vizibile în browserul unui utilizator. Ele nu sunt dependențe ale instalării.
+## Remaining physical validation
 
-Nu s-a făcut nicio modificare la repository sau release prin acest audit. Sursele sunt pregătite local pentru încărcare.
+The G01 previously confirmed0.2.4 automatic colors and native previews. Physical0.2.6 retest, Sport Plus/Individual/Adaptive on equipped vehicles, full vehicle sleep/wake and first installation on other firmware remain unconfirmed. The existing head unit must supply its native SOME/IP module, generated service configurations, donor SDK and matching artwork. No new G01 reads are needed for the implemented menu/rule split; readings are needed if a newly tested vehicle does not report a mode distinctly.

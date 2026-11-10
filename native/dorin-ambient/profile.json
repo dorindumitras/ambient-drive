@@ -49,17 +49,20 @@
     "source": "Original per-color bitmap layers read from the installed car-specific pack, with native GID fallback",
     "verifiedRoot": "/mnt/dataro/dataro1/hmi/bmw/id7/assetDB/ContentPreview/Interieur/G01/Interieur_Licht/G02_Settings_Interiorlight",
     "behavior": "Preview the focused/selected rule color, including original two-tone combinations",
-    "status": "User confirmed original per-color previews in app0.2.4; preview implementation unchanged in0.2.5"
+    "status": "User confirmed original per-color previews in app0.2.4; preview implementation unchanged in0.2.6"
   },
   "ui": {
     "layout": "native left menu and right image",
     "masterLabel": "Ambient Drive",
-    "sportLabel": "Sport / Sport PLUS",
+    "sportLabel": "Sport",
     "comfortLabel": "Comfort",
     "selector": "Native LT_Button_ColorPick opens the left color list with LT_RadioButton_MyV_Settings_Light_1Row and the original right preview",
     "swatch": "OEM slanted color chip in the mode row",
-    "status": "0.2.4 app confirmed functional by user on G01;0.2.5 adds an independent Adaptive selector. Physical retest pending; G01 has no Adaptive driving mode.",
-    "adaptiveLabel": "Adaptive"
+    "status": "0.2.6 separates Sport Plus, exposes eight ordered selectors and retains the accepted native widgets. Physical retest pending.",
+    "adaptiveLabel": "Adaptive",
+    "sportPlusLabel": "Sport Plus",
+    "sportIndividualLabel": "Sport Individual",
+    "ecoProIndividualLabel": "Eco Pro Individual"
   },
-  "note": "Service0.2.3 transport context fix was confirmed functional by user. Service0.2.4 changes only the model to separate Adaptive from Comfort, migrates the legacy shared color once and keeps the existing root/socket/transport/persistence mechanisms. Physical0.2.5 and sleep/wake validation remain pending."
+  "note": "Service0.2.5 separates SPORT_EXPERT/PHEV_SPORT_PLUS from Sport and migrates the shared rule once, including STANDARD. Individual signals retain independent rules. Transport, root/socket permissions, persistence and controller unchanged. Vehicle0.2.6 retest, additional modes and sleep/wake remain pending."
 }

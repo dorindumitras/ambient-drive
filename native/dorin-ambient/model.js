@@ -7,22 +7,25 @@ var COLORS = {
     green_white:{menu:'FARBAUSWAHL_11',hue:120}, lilac:{menu:'FARBAUSWAHL_12',hue:258},
     lilac_white:{menu:'INDIVIDUALMODUS',hue:120}
 };
-var MODES = ['sport', 'sport_individual', 'comfort', 'comfort_plus', 'comfort_individual', 'adaptive',
-    'eco_pro', 'eco_pro_plus', 'eco_pro_individual',
+// These eight selectors stay in the requested order, even before a mode is
+// observed. Configuring a selector never enables that driving mode in the car.
+var PRIMARY_MODES = ['sport', 'sport_plus', 'sport_individual', 'comfort', 'adaptive',
+    'eco_pro', 'eco_pro_individual', 'manual'];
+var MODES = PRIMARY_MODES.concat(['comfort_plus', 'comfort_individual', 'eco_pro_plus',
     'offroad_ice', 'offroad_smooth', 'offroad_grip',
-    'offroad_rough', 'ease', 'traction_assist', 'boost', 'manual'];
+    'offroad_rough', 'ease', 'traction_assist', 'boost']);
 var FES = {
-    SPORT_DYNAMIC: 'sport', SPORT_EXPERT: 'sport', SPORT_INDIVIDUAL: 'sport_individual',
+    SPORT_DYNAMIC: 'sport', SPORT_EXPERT: 'sport_plus', SPORT_INDIVIDUAL: 'sport_individual',
     COMFORT: 'comfort', COMFORT_PLUS: 'comfort_plus', COMFORT_INDIVIDUAL: 'comfort_individual',
     ECO_PRO_EFFICIENT: 'eco_pro', ECO_PRO_PLUS: 'eco_pro_plus', ECO_PRO_INDIVIDUAL: 'eco_pro_individual',
     ADAPTIVE: 'adaptive', PHEV_SPORT_STANDARD: 'sport', PHEV_SPORT_INDIVIDUAL: 'sport_individual',
-    PHEV_SPORT_PLUS: 'sport', PHEV_HYBRID_STANDARD: null, PHEV_HYBRID_ECO: 'eco_pro',
+    PHEV_SPORT_PLUS: 'sport_plus', PHEV_HYBRID_STANDARD: null, PHEV_HYBRID_ECO: 'eco_pro',
     PHEV_HYBRID_COMFORT: 'comfort',
     OFFROAD_ICE: 'offroad_ice', OFFROAD_SMOOTH: 'offroad_smooth', OFFROAD_GRIP: 'offroad_grip',
     OFFROAD_ROUGH: 'offroad_rough', EASE_MODUS: 'ease', TRACTION_ASSIST: 'traction_assist', BOOST: 'boost'
 };
 function own(o, key) { return Object.prototype.hasOwnProperty.call(o, key); }
-var ALIASES = {sport_plus:'sport'};
+var ALIASES = {};
 function canonical(mode) { return typeof mode === 'string' && own(ALIASES,mode) ? ALIASES[mode] : mode; }
 function baseMode(raw) { return typeof raw === 'string' && own(FES, raw) ? FES[raw] : null; }
 function resolve(ctx) {
@@ -36,8 +39,8 @@ function resolve(ctx) {
 function retired(mode) { return ['hybrid','hybrid_eco','hybrid_comfort','electric','electric_individual','battery_control'].indexOf(mode) >= 0; }
 function defaults() {
     var rules = {}; MODES.forEach(function (m) { rules[m] = null; });
-    rules.sport = 'orange'; rules.comfort = 'green'; rules.adaptive = 'green'; rules.eco_pro = 'blue';
-    return {schema: 2, enabled: false, rules: rules, seenModes: ['sport', 'comfort', 'adaptive', 'eco_pro']};
+    rules.sport = 'orange'; rules.sport_plus = 'orange'; rules.comfort = 'green'; rules.adaptive = 'green'; rules.eco_pro = 'blue';
+    return {schema: 2, enabled: false, rules: rules, seenModes: PRIMARY_MODES.slice()};
 }
 function settings(value) {
     var result = defaults();
@@ -57,6 +60,9 @@ function settings(value) {
         // Older releases stored Comfort and Adaptive as one rule. Seed the new
         // rule once, including STANDARD; subsequent saves carry both keys.
         if (!own(value.rules, 'adaptive')) result.rules.adaptive = result.rules.comfort;
+        // Releases through0.2.5 shared Sport / Sport PLUS. Copy once only when
+        // the new key is absent; an explicit STANDARD or distinct color wins.
+        if (!own(value.rules, 'sport_plus')) result.rules.sport_plus = result.rules.sport;
         if (!Array.isArray(value.seenModes) || value.seenModes.some(function (m) { return MODES.indexOf(m) < 0 && !own(ALIASES,m) && !retired(m); })) throw new Error('Invalid modes');
         value.seenModes.forEach(function (m) { if (MODES.indexOf(m) >= 0 && result.seenModes.indexOf(m) < 0) result.seenModes.push(m); });
     }
@@ -67,5 +73,5 @@ function change(value, mode, color) {
     if (MODES.indexOf(mode) < 0 || (color !== null && (typeof color !== 'string' || !own(COLORS, color)))) throw new Error('Invalid mode or color');
     var next = settings(value); next.rules[mode] = color; return next;
 }
-module.exports = {colors: COLORS, modes: MODES, fes: FES, baseMode: baseMode, resolve: resolve,
+module.exports = {colors: COLORS, modes: MODES, primaryModes: PRIMARY_MODES, fes: FES, baseMode: baseMode, resolve: resolve,
     defaults: defaults, settings: settings, change: change};

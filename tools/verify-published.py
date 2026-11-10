@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compare a local clean build with the audited public 0.2.5/0.2.4 packages."""
+"""Compare a local clean build with the frozen 0.2.6/0.2.5 release packages."""
 import hashlib
 import json
 from pathlib import Path

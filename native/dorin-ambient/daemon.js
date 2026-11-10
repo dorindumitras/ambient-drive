@@ -19,7 +19,7 @@ function create(options) {
     var store = require('./settings-store').create(dir), loaded = store.load(), config = loaded.value;
     var state = controller.createState(), inFlight = Promise.resolve();
     var server, worker, controlChain = Promise.resolve();
-    var view = {version: '0.2.4', phase: ready ? 'disabled' : 'setup_required', mode: null, lastColor: null, confirmedByReadback: false, lastError: loaded.error};
+    var view = {version: '0.2.5', phase: ready ? 'disabled' : 'setup_required', mode: null, lastColor: null, confirmedByReadback: false, lastError: loaded.error};
     function status() {
         var visible = (profile.knownModes || []).concat(config.seenModes);
         var rules = Object.assign({}, config.rules);
@@ -187,7 +187,7 @@ function main() {
     var ending = false;
     function end() { if (!ending) { ending = true; daemon.stop().then(function () { process.exit(0); }, function () { process.exit(1); }); } }
     process.on('SIGINT', end); process.on('SIGTERM', end);
-    return daemon.start().then(function () { console.log('Ambient Drive 0.2.4 ready'); }, function (e) { console.error(e.stack); process.exit(1); });
+    return daemon.start().then(function () { console.log('Ambient Drive 0.2.5 ready'); }, function (e) { console.error(e.stack); process.exit(1); });
 }
 if (require.main === module) main();
 module.exports = {create: create, main: main};

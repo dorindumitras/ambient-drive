@@ -67,7 +67,7 @@ def main():
             assert config['rhmiLoadingEnabled'] and config['entryPointLoadingEnabled']
             description = json.loads(members['package/rhmiData/uiDescriptions/ID7/uiDescription.json'])
             names = {c.get('name') for state in description['containers'].values() for c in state.get('components', {}).values()}
-            assert {'STATUS', 'ENABLED', 'MODE_SPORT', 'MODE_COMFORT', 'MODE_ADAPTIVE', 'MODE_ECO_PRO', 'MODE_MANUAL'} <= names
+            assert {'STATUS', 'ENABLED', 'MODE_SPORT', 'MODE_SPORT_PLUS', 'MODE_SPORT_INDIVIDUAL', 'MODE_COMFORT', 'MODE_ADAPTIVE', 'MODE_ECO_PRO', 'MODE_ECO_PRO_INDIVIDUAL', 'MODE_MANUAL'} <= names
             assert 'MODE_ELECTRIC' not in names
             assert package['author'] == component['author'] == 'Dorin Dumitras'
             assert component['requires']['dorin-ambient'] == next(c['version'] for c in catalog['components'] if c['kind'] == 'tool')

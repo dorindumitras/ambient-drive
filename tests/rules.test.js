@@ -109,15 +109,47 @@ async function main() {
     f.ctx.manual=false;await twice(s,f);assert.strictEqual(f.writes.length,count,'Leaving M/S for Adaptive STANDARD keeps the current color');
     f.config=model.change(f.config,'adaptive','green_white');await twice(s,f);
     assert.strictEqual(f.color.statusMenuAmbientePanoramicRoofInteriorLighting,'FARBAUSWAHL_11');
-    assert.strictEqual(model.resolve({fes:'SPORT_EXPERT'}),'sport');
-    assert.strictEqual(model.resolve({fes:'PHEV_SPORT_PLUS'}),'sport');
-    assert.strictEqual(model.resolve({fes:'COMFORT',baseDriveMode:'sport_plus'}),'sport');
+    assert.strictEqual(model.resolve({fes:'SPORT_EXPERT'}),'sport_plus');
+    assert.strictEqual(model.resolve({fes:'PHEV_SPORT_PLUS'}),'sport_plus');
+    assert.strictEqual(model.resolve({fes:'COMFORT',baseDriveMode:'sport_plus'}),'sport_plus');
     assert.strictEqual(model.resolve({fes:'SPORT_EXPERT',manualSupported:true,manual:true}),'manual');
-    var sportAlias=model.change(model.defaults(),'sport_plus','bronze_white');
-    assert.strictEqual(sportAlias.rules.sport,'bronze_white');assert.strictEqual(sportAlias.rules.sport_plus,undefined);
-    sportAlias.rules.sport_plus='blue';sportAlias.seenModes.push('sport_plus');
-    assert.strictEqual(model.settings(sportAlias).rules.sport,'bronze_white');
-    assert.strictEqual(model.modes.indexOf('sport_plus'),-1);
+    var separate=model.change(model.defaults(),'sport_plus','bronze_white');
+    assert.strictEqual(separate.rules.sport,'orange');
+    assert.strictEqual(separate.rules.sport_plus,'bronze_white');
+    [null].concat(Object.keys(model.colors)).forEach(function(color){
+        [true,false].forEach(function(enabled){
+            var oldConfig=model.defaults();delete oldConfig.rules.sport_plus;
+            oldConfig.rules.sport=color;oldConfig.enabled=enabled;
+            var upgraded=model.settings(oldConfig);
+            assert.strictEqual(upgraded.enabled,enabled);
+            assert.strictEqual(upgraded.rules.sport_plus,color,'Shared Sport color migrates once, including STANDARD');
+            upgraded=model.change(upgraded,'sport',color==='blue'?'green':'blue');
+            assert.strictEqual(model.settings(upgraded).rules.sport_plus,color);
+            upgraded=model.change(upgraded,'sport_plus',null);
+            assert.strictEqual(model.settings(upgraded).rules.sport_plus,null,'An explicit STANDARD never copies Sport again');
+        });
+    });
+    var signals={sport:'SPORT_DYNAMIC',sport_plus:'SPORT_EXPERT',sport_individual:'SPORT_INDIVIDUAL',
+        comfort:'COMFORT',adaptive:'ADAPTIVE',eco_pro:'ECO_PRO_EFFICIENT',eco_pro_individual:'ECO_PRO_INDIVIDUAL',manual:'COMFORT'};
+    for (var mode of model.primaryModes) {
+        for (var color of [null].concat(Object.keys(model.colors))) {
+            f=fixture();s=auto.createState();
+            f.ctx.fes=signals[mode];f.ctx.manual=mode==='manual';
+            f.config=model.change(f.config,mode,color);
+            await twice(s,f);
+            assert.strictEqual(model.resolve(f.ctx),mode);
+            if(color===null) assert.strictEqual(f.writes.length,0,mode+' STANDARD must not fall back');
+            else assert.ok(auto.matches(f.color,model.colors[color]),mode+' must apply its own '+color);
+            var snapshot=JSON.stringify(f.color),writes=f.writes.length;
+            var other=mode==='sport'?'sport_plus':'sport';
+            f.config=model.change(f.config,other,'lilac');await twice(s,f);
+            assert.strictEqual(f.writes.length,writes,'Inactive '+other+' cannot affect '+mode);
+            assert.strictEqual(JSON.stringify(f.color),snapshot);
+        }
+    }
+    assert.strictEqual(model.baseMode('PHEV_SPORT_INDIVIDUAL'),'sport_individual');
+    assert.strictEqual(model.baseMode('PHEV_SPORT_STANDARD'),'sport');
+    assert.deepStrictEqual(model.primaryModes,['sport','sport_plus','sport_individual','comfort','adaptive','eco_pro','eco_pro_individual','manual']);
     assert.strictEqual(model.resolve({fes: 'PHEV_BATTERYCONTROL'}), null);
     assert.strictEqual(model.resolve({fes: '__proto__'}), null);
     assert.throws(function () { model.change(model.defaults(), '__proto__', 'blue'); });

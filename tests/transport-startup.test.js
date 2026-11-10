@@ -31,7 +31,7 @@ async function main(){
         // The host's own group is used here; production resolves tm_oap_app.
         groups.assign(socket,process.getgid());
         assert.strictEqual(fs.statSync(socket).gid,process.getgid());assert.strictEqual(fs.statSync(socket).mode&0o777,0o660);
-        assert.strictEqual((await client.request('status',socket)).version,'0.2.4');
+        assert.strictEqual((await client.request('status',socket)).version,'0.2.5');
         assert.strictEqual((await client.request('status',socket)).enabled,false);
         var bad=service.create({socketPath:socket,stateDir:stateDir,socketGroup:'ambient_drive_group_that_does_not_exist',profile:{pendingSignals:[]},driver:{}});
         await assert.rejects(bad.start(),/resolve socket group/);

@@ -1,6 +1,7 @@
 dist/
 release/
 validation/
+publication/
 __pycache__/
 *.pyc
 .DS_Store

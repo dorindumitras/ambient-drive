@@ -65,7 +65,8 @@ def words(locale):
 
 
 def mode_name(mode, w):
-    special = {'sport': 'Sport / Sport PLUS', 'comfort': 'Comfort', 'adaptive': 'Adaptive',
+    special = {'sport': 'Sport', 'sport_plus': 'Sport Plus', 'sport_individual': 'Sport Individual',
+               'comfort': 'Comfort', 'adaptive': 'Adaptive', 'eco_pro': 'Eco Pro', 'eco_pro_individual': 'Eco Pro Individual',
                'manual': w['manual'], 'electric': w['electric'], 'electric_individual': w['electric'] + ' Individual',
                'hybrid': w['hybrid'], 'hybrid_eco': w['hybrid'] + ' Eco', 'hybrid_comfort': w['hybrid'] + ' Comfort',
                'battery_control': w['battery']}

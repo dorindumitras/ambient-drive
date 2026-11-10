@@ -26,7 +26,7 @@ async function main(){
             var op=typeof req==='string'?req:req.op;
             if(op==='enable')config.enabled=true;if(op==='disable')config.enabled=false;
             if(op==='set-rule')config=model.change(config,req.mode,req.color);
-            return {enabled:config.enabled,telemetryReady:true,rules:config.rules,palette:Object.keys(model.colors),availableModes:['sport','comfort','adaptive','eco_pro','manual'],phase:servicePhase||(config.enabled?'active':'disabled'),lastColor:'green',lastError:serviceError};
+            return {enabled:config.enabled,telemetryReady:true,rules:config.rules,palette:Object.keys(model.colors),availableModes:model.primaryModes.slice(),phase:servicePhase||(config.enabled?'active':'disabled'),lastColor:'green',lastError:serviceError};
         }};
         throw new Error(name);
     },console:console});
@@ -39,7 +39,24 @@ async function main(){
     await loops.MAIN();assert.strictEqual(sids['STATUS:Text'],'SID_AD_PHASE_WAITING','An unavailable driving-mode service is not a failed color-write confirmation');
     servicePhase='unconfirmed';serviceError='Color change not confirmed';await loops.MAIN();assert.strictEqual(sids['STATUS:Text'],'SID_AD_PHASE_ERROR');
     servicePhase=null;serviceError=null;
-    assert.strictEqual(visible.MODE_MANUAL,true);assert.strictEqual(visible.MODE_COMFORT,true);assert.strictEqual(visible.MODE_ADAPTIVE,true);assert.strictEqual(typeof callbacks.MODE_ADAPTIVE,'function');assert.strictEqual(callbacks.MODE_SPORT_PLUS,undefined);assert.strictEqual(callbacks.MODE_ELECTRIC,undefined);
+    assert.strictEqual(visible.MODE_MANUAL,true);assert.strictEqual(visible.MODE_COMFORT,true);assert.strictEqual(visible.MODE_ADAPTIVE,true);assert.strictEqual(typeof callbacks.MODE_ADAPTIVE,'function');assert.strictEqual(typeof callbacks.MODE_SPORT_PLUS,'function');assert.strictEqual(callbacks.MODE_ELECTRIC,undefined);
+    for (var mode of model.primaryModes) {
+        var name='MODE_'+mode.toUpperCase(),original=config.rules[mode];
+        assert.strictEqual(visible[name],true,'Required selector is available before mode discovery: '+mode);
+        var others=Object.assign({},config.rules);delete others[mode];
+        await callbacks[name]();
+        assert.strictEqual(sids['COLORS_TITLE:Text'],'SID_DORIN_AMBIENTDRIVE_'+name);
+        for (var color of [null].concat(Object.keys(model.colors))) {
+            var colorControl='COLOR_'+(color===null?'NONE':color.toUpperCase());
+            await callbacks[colorControl]();
+            assert.strictEqual(config.rules[mode],color);
+            assert.strictEqual(checked[colorControl],true);
+            assert.strictEqual(closed.length,0,'A selection keeps the native picker open');
+            Object.keys(others).forEach(function(other){assert.strictEqual(config.rules[other],others[other]);});
+        }
+        await callbacks['COLOR_'+(original===null?'NONE':original.toUpperCase())]();
+        await back();
+    }
     await callbacks.MODE_ADAPTIVE();assert.strictEqual(sids['COLORS_TITLE:Text'],'SID_DORIN_AMBIENTDRIVE_MODE_ADAPTIVE');
     await callbacks.COLOR_LILAC();assert.strictEqual(config.rules.adaptive,'lilac');assert.strictEqual(config.rules.comfort,'green');
     assert.strictEqual(closed.length,0,'Adaptive selection also stays open');await back();
