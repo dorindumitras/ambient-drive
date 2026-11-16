@@ -5,6 +5,7 @@ from pathlib import Path
 import subprocess
 import sys
 import native_locales
+import widget_locales
 from xml.etree import ElementTree
 from importlib.util import spec_from_file_location, module_from_spec
 
@@ -36,6 +37,12 @@ def main():
         for file in directory.glob('*.json'):
             values = json.loads(file.read_text())
             values.update(native_locales.resources(app_id, modes, file.stem))
+            assert len(values) <= 1024
+            file.write_text(json.dumps(values, ensure_ascii=False, indent=1) + '\n')
+    for directory in [stage / 'source/rhmiDataStartWidget/variantGroups/Common/texts', stage / 'rhmiDataStartWidget/strings']:
+        for file in directory.glob('*.json'):
+            values = json.loads(file.read_text())
+            values.update(widget_locales.resources(app_id, modes, file.stem))
             assert len(values) <= 1024
             file.write_text(json.dumps(values, ensure_ascii=False, indent=1) + '\n')
     entry = ROOT / 'tools/build-release.py'

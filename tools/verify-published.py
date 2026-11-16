@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compare a local clean build with the frozen 0.2.6/0.2.5 release packages."""
+"""Compare a local clean build with the frozen release artifacts."""
 import hashlib
 import json
 from pathlib import Path

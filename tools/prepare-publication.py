@@ -69,11 +69,11 @@ def main():
     shutil.copyfile(ROOT / 'docs/STICK-RO.md', stick / 'CITESTE-MA.md')
     (github / 'RELEASE-NOTES.md').write_text(
         '# Ambient Drive ' + app + '\n\nApp ' + app + ' / Service ' + service +
-        '\n\nIndependent Sport, Sport Plus, Sport Individual, Comfort, Adaptive, Eco Pro, Eco Pro Individual and M/S colors, in that order.'
-        ' Existing Sport color initializes Sport Plus once, including STANDARD. All other rules and the enable state are retained.'
-        '\n\nTest candidate: local regressions and package checks are documented in docs/PUBLICATION-AUDIT.md.'
-        ' Physical retest, additional driving modes and full vehicle sleep/wake remain pending. ID7 only.'
-        ' Keep the existing catalog tag and Store source.\n')
+        '\n\nNative Home widget with detected driving mode, configured color and automation state, native iDrive-language text and small/large layouts. Tap opens the existing settings.'
+        ' Based on0.2.6; the complete service0.2.5 artifact is unchanged. All eight independent color rules and saved settings are retained.'
+        '\n\nTest release:19local regression/build checks and clean-source reproducibility passed. Physical Home, sleep/wake and additional-vehicle validation remain unconfirmed.'
+        ' The reported G01 xDrive30i2026 M/S notification issue remains under investigation; this Home-only update does not fix its input binding.'
+        ' ID7 only. Keep the existing catalog tag and Store source.\n')
     checksums = {}
     for file in sorted(assets.iterdir()):
         data = file.read_bytes(); checksums[file.name] = {'size': len(data), 'sha256': sha(data)}

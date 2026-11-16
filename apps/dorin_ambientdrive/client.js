@@ -1,6 +1,6 @@
 'use strict';
 var net = require('net');
-function request(op, socketPath) {
+function request(op, socketPath, timeoutMs) {
     return new Promise(function (resolve, reject) {
         var socket = net.createConnection(socketPath || '/dev/shm/dorin-ambient/control.sock');
         var buffer = '', settled = false;
@@ -9,7 +9,7 @@ function request(op, socketPath) {
             settled = true; socket.destroy();
             if (error) reject(error); else resolve(result);
         }
-        socket.setTimeout(12000, function () { finish(new Error('Ambient Drive service timeout')); });
+        socket.setTimeout(timeoutMs || 12000, function () { finish(new Error('Ambient Drive service timeout')); });
         socket.on('error', function (e) { finish(e); });
         socket.on('connect', function () { socket.write(JSON.stringify(typeof op === 'string' ? {op: op} : op) + '\n'); });
         socket.on('data', function (chunk) {

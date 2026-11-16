@@ -1,0 +1,11 @@
+{
+  "fromVersion": "0.2.6",
+  "mainUi": {
+    "application.xml": "1ff78fe544a520a05c069c0e3a88d0047e64eaf5ed09beb80e461e8162839287",
+    "uiDescription.json": "e0f32773f0b4bd7005c07c9bd1369a6cfa6dc8514ac9191c3a2a319ae42fe22e"
+  },
+  "runtimePrefix": "3eef2c2c60abaf70ffb4d864e5fa2226dbc761c5af4154f1c36fc493c68f6c59",
+  "runtimeSuffix": "e8603c41f92b4fb4b121946baf0e7335851930cf51ef58a01ecb3acc41cf6051",
+  "iconSha256": "48372523397c31a145d63c9193622db096ffb07b8f18fe4d6034bd7d53f63609",
+  "serviceArtifactSha256": "9309c3a657494888df6d0269758076b2a4b7885aeb89529de13bd1c2f9f7e162"
+}

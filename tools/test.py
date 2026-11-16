@@ -8,11 +8,12 @@ ROOT = Path(__file__).resolve().parents[1]
 tests = [
     'rules', 'ui', 'adaptive-migration', 'sport-split', 'service', 'transport-startup',
     'native-swatches', 'native-focus', 'standard-graphic', 'artwork',
-    'image-result', 'verified-bindings',
+    'image-result', 'verified-bindings', 'home-widget', 'widget-runtime', 'widget-client',
 ]
 commands = [['node', 'tests/' + name + '.test.js'] for name in tests]
 commands.extend([
     [sys.executable, 'tools/check-native.py'],
+    [sys.executable, 'tools/check-widget.py'],
     [sys.executable, 'tools/verify-release.py', '--validation'],
     [sys.executable, 'tools/verify-published.py'],
 ])

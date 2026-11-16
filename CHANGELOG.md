@@ -1,5 +1,15 @@
 # Ambient Drive changes
 
+## App0.2.7 / Service0.2.5 — private Home-widget test
+
+- Native Home registration, approved icon and stable widget UUID.
+- Live detected mode, configured color and honest automation state, in33iDrive locales.
+- Compact/large native text fields, large ambient-strip illustration, tap to existing settings.
+- Visible-only status reads shared between placed widgets, bounded to2seconds; no write operations.
+- Widget resource cleanup, including removal during image upload.
+- Main startup UI, non-widget runtime and complete service artifact remain unchanged from0.2.6.
+- G01 xDrive30i2026 M/S compatibility diagnosis remains separate.
+
 ## App 0.2.6 / Service 0.2.5
 
 - Separate Sport and Sport Plus; SPORT_EXPERT and PHEV_SPORT_PLUS use the independent Sport Plus rule.

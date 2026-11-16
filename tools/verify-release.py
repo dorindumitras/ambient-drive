@@ -72,6 +72,14 @@ def main():
             assert package['author'] == component['author'] == 'Dorin Dumitras'
             assert component['requires']['dorin-ambient'] == next(c['version'] for c in catalog['components'] if c['kind'] == 'tool')
             assert 'package/javascript/LICENSE' in members and 'package/javascript/NOTICE' in members
+            widget_root = 'package/rhmiDataStartWidget/'
+            assert widget_root + 'application.json' in members, 'Home registration must be inside the installed tgz'
+            widget_app = json.loads(members[widget_root + 'application.json'])['application']
+            assert widget_app['type'] == 'StartWidget' and widget_app['entryPoints'] == []
+            assert widget_root + 'uiDescriptions/ID7/application.xml' in members
+            widget_texts = [n for n in members if n.startswith(widget_root + 'variantGroups/Common/texts/')]
+            assert len(widget_texts) == 33
+            assert 'package/javascript/home-widget.js' in members
     app_version = next(c['version'] for c in catalog['components'] if c['kind'] == 'app')
     source = ROOT / ('validation' if args.validation else 'release') / ('Ambient-Drive-' + app_version + '-surse.zip')
     with zipfile.ZipFile(source) as archive:

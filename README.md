@@ -1,5 +1,7 @@
 # Ambient Drive
 
+**0.2.7 — native Home widget**, based on0.2.6, with unchanged service0.2.5. This is a test release; physical Home-widget and sleep/wake validation remain unconfirmed.
+
 A native iDrive7 app that changes ambient lighting according to the driving mode and the M/S gear selector position.
 
 ![Ambient Drive](ambient-drive.png)
@@ -16,7 +18,7 @@ The native interface follows the iDrive language and uses the car's installed pr
 
 In MGU Store use **Settings → Add source**, enter **dorindumitras/ambient-drive**, choose **Releases**, then **Check now**. Open Ambient Drive. Its service dependency is installed first when needed.
 
-Current packages: app **0.2.6**, service **0.2.5**. Requires iDrive7, MGU Store and mgu-deploy0.7.11 or newer.
+Current packages: app **0.2.7**, service **0.2.5**. Existing users keep the same source and choose **Check now → Update**. Requires iDrive7, MGU Store and mgu-deploy0.7.11 or newer.
 
 <img width="4032" height="2268" alt="Ambient-Drive" src="https://github.com/user-attachments/assets/c1a8ae94-bfff-4ddb-949e-c837f072d902" />
 
@@ -30,7 +32,7 @@ The Adaptive row is configurable before that driving mode is observed. Its light
 
 ## Test status
 
-Local migration, rule, IPC, service restart, UI and package checks passed. Previous app0.2.4 was reported functional by the user on a BMW G01 plug-in2020. App0.2.6 / service0.2.5 passed local verification and await on-car retesting. Sport Plus and Individual modes require a car that actually reports their corresponding FES signals. Full vehicle sleep/wake retention and physical operation of the additional modes, including Adaptive on an equipped car remain unconfirmed. The user's G01 has no Adaptive mode. Other models and firmware have not been physically validated. This is a test release.
+Local migration, rule, IPC, service restart, UI and package checks passed. Previous app0.2.4 was reported functional by the user on a BMW G01 plug-in2020. The0.2.7 widget candidate requires on-car validation; its existing driving-mode logic uses the unchanged service0.2.5. Sport Plus and Individual modes require a car that actually reports their corresponding FES signals. Full vehicle sleep/wake retention and physical operation of the additional modes, including Adaptive on an equipped car remain unconfirmed. The user's G01 has no Adaptive mode. Other models and firmware have not been physically validated. This is a test release.
 
 No BMW SDK, executable, private keys or extracted artwork is distributed. Own code uses MIT; retain the included notices. See LICENSE.kit for the application kit license.
 
@@ -43,3 +45,11 @@ The complete app, service, runtime kit, build scripts and regression tests are i
 App source: [apps/dorin_ambientdrive](apps/dorin_ambientdrive). Service source: [native/dorin-ambient](native/dorin-ambient). Package hashes are recorded in [RELEASE-ARTIFACTS.json](RELEASE-ARTIFACTS.json).
 
 The named source ZIP attached to a release is the complete source snapshot. GitHub's automatic source archives reflect the commit of their particular tag; the `catalog` tag is the distribution index and can refer to an earlier commit. For versioned source snapshots use a tag created after the source files have been committed.
+
+## Native Home widget
+
+The app now ships a separate `rhmiDataStartWidget` package for the BMW Add widget list. It displays the detected driving mode, its configured color and automation state using native text in the iDrive language. Large widgets add a restrained ambient-light illustration; small widgets use the same native text fields. Tap opens the existing app settings.
+
+Home reads only the service status, at most once a second while visible, with a2second socket timeout. It cannot change rules or activate the master switch. Unknown mode, disabled automation, unavailable service and unconfirmed application are displayed explicitly. The color represents the selected rule; this is not an independent measurement of the physical lights.
+
+All eight selectors, existing native menus/previews and stored settings are retained. The separate G01 xDrive30i2026 M/S telemetry issue is still under investigation; a Home widget does not supply the missing signal. See [TEST-PE-MGU.md](TEST-PE-MGU.md) and [docs/HOME-WIDGET.md](docs/HOME-WIDGET.md).

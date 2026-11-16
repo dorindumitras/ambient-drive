@@ -1,21 +1,19 @@
-# Install Ambient Drive 0.2.6
+# Ambient Drive0.2.7 — Home widget (test release)
 
-Use MGU iDrive 7 with ambient lighting and MGU Store already configured. Requires mgu-deploy 0.7.11 or newer. App **0.2.6** requires Ambient Drive Service **0.2.5**; Store installs missing dependencies first. This is a test candidate pending vehicle retesting.
+App0.2.7 with unchanged service0.2.5, iDrive7 only. Install from the existing GitHub Releases source or the supplied USB package. Requires an existing configured MGU Store and mgu-deploy≥0.7.11.
 
-1. Connect MGU Store to the internet.
-2. Settings → Add source → `dorindumitras/ambient-drive`.
-3. Choose **Releases**, then **Check now**.
-4. Open **Ambient Drive → Install / Update**. Follow any restart requested by Store.
-5. Choose the per-mode colors and enable Ambient Drive. A first installation starts disabled.
+## GitHub / Store
 
-These online steps install0.2.6 only after its prepared assets and catalog have been uploaded to the existing public catalog release. Until then the source still offers its previous version. No new source/link is needed.
-
-For an existing installation, update both packages without uninstalling or clearing settings. The previous shared Sport color initializes Sport Plus once, including STANDARD. All existing rules and enabled/disabled state are retained. Comfort and Adaptive remain independent.
-
-M/S takes priority over the base driving mode. STANDARD sends no color command and does not fall back to another rule. Choices save immediately; only native Back returns from the picker. The app does not enable driving modes absent from the car.
+Settings → Add source → `dorindumitras/ambient-drive` → **Releases** → **Check now** → Ambient Drive → Install/Update. If the source is already present, use Check now and update the app. Service0.2.5 is unchanged and is installed only if needed. Preserve settings. After installation, open the app once and add Ambient Drive in the native Home Add widget list.
 
 ## USB
 
-Extract `Ambient-Drive-0.2.6-Stick.zip` and copy its **mgu-repo** directory to the stick root. Use MGU Store → USB and install/update service0.2.5 then app0.2.6. Retain other unrelated sources on the stick; replace the old `ambient-drive-test` folder so only one candidate catalog is present. No compile or PuTTY command is needed for this update. See [TEST-PE-MGU.md](TEST-PE-MGU.md) and [docs/STICK-RO.md](docs/STICK-RO.md).
+1. Extract Ambient-Drive-0.2.7-Widget-Test-Stick.zip.
+2. Copy its mgu-repo folder to the USB root, replacing only the old ambient-drive-test folder.
+3. MGU Store → USB → Ambient Drive → Update/Install. The unchanged service0.2.5 is included for a missing dependency. Preserve the existing installation/settings; follow any restart requested by Store.
+4. Open the app once and verify the existing checkbox/colors.
+5. In Home customization, open Add widget and select Ambient Drive. Try the small and large sizes. Tap the widget to open the app.
 
-The public catalog uses prebuilt archives. The vehicle supplies its native SOME/IP module and firmware-generated configurations; Store supplies the BMW donor SDK. They are not redistributed. See [docs/COMPATIBILITY.md](docs/COMPATIBILITY.md).
+The included mgu-copy.json identifies the USB folder as a copy of github:dorindumitras/ambient-drive, allowing updates under the existing source when it is configured. A warning that the app belongs to another source should be reported; do not uninstall or clear settings as a workaround.
+
+The widget reads status only. It does not enable automation, change a color choice or resolve missing vehicle telemetry. Test Home behavior using TEST-PE-MGU.md.

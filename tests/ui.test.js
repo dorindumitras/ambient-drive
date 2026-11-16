@@ -16,6 +16,7 @@ async function main(){
     },log:{warn:function(){},info:function(){}},loop:function(name,fps,fn){loops[name]=fn;}};
     vm.runInNewContext(fs.readFileSync(__dirname+'/../apps/dorin_ambientdrive/main.js','utf8'),{require:function(name){
         if(name==='./ui-schema')return schema;
+        if(name==='./home-widget')return {start:function(){}};
         if(name==='./artwork')return {create:function(){return {render:function(color){return Buffer.from(color===null?'base':color);}};}};
         if(name==='./native-preview')return {create:function(){return {set:function(name,color){nativeCalls++;if(nativePreviewFail)return Promise.reject(new Error('Native scene unavailable'));previews.push({name:name,color:color===null?'base':color,source:'native'});return Promise.resolve();}};}};
         if(name==='./native-focus')return {apply:function(){focusRequested++;return new Promise(function(){});}};

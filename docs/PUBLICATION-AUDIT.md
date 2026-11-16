@@ -1,25 +1,23 @@
-# Ambient Drive0.2.6 verification
+# Ambient Drive0.2.7 — Home-widget release verification
 
-App **0.2.6**, service **0.2.5**. Prepared for the existing `dorindumitras/ambient-drive` Store source and `catalog` release. Status: locally verified test candidate. Public release checks are recorded separately after deployment.
+Based on the complete0.2.6 source, with unchanged service0.2.5. Publication was requested by the user after preparing the tested USB candidate. Hardware validation has not been reported and is not inferred from that request. Public download checks are recorded separately after deployment.
 
-## Product regression
+## Local checks
 
-All **15** regression/build checks passed: rules, UI, Adaptive migration, Sport split migration, service, transport startup, native swatches, native focus, STANDARD graphic, artwork, image result, recorded bindings, native layout, complete release and frozen artifact hashes. All eight primary modes were exercised with all11calibrated colors plus STANDARD. Migration checks include enabled and disabled states, a missing Sport Plus key, explicit STANDARD, independent choices and temporary Unix-socket/disk service restart. The accepted startup widgets/properties were compared to0.2.4, allowing only the new rows and required row ordering. Labels/references cover33HMI locales.
+The19regression/build checks cover all existing rule, migration, IPC/persistence, root transport, native menu/preview/swatch/focus and artifact checks, plus Home presentation, widget lifecycle/resources, bounded status client and packaged Home resources. Test fixtures use mock RHMI and temporary Unix sockets; no BMW SDK/native binary is run on the audit host.
 
-Twelve critical files remain byte-identical to0.2.5: UI main, artwork, native focus/preview/swatches, UI client, controller, vehicle driver, settings store, socket group, bootstrap and service unit.
+The native main startup XML and JSON, all non-widget runtime code and the complete service archive are compared against the frozen0.2.6 baseline. The service SHA256 remains9309c3a657494888df6d0269758076b2a4b7885aeb89529de13bd1c2f9f7e162. Home status rendering covers all modes/colors, disabled/unknown/offline states, false-confirmation avoidance, small/large behavior, read-only visible polling and recovery. Lifecycle tests include actual tap-to-main wiring and removal during a pending image upload.
 
-## Store integration
+The widget is registered in package/rhmiDataStartWidget, with33native locale tables, the approved icon and a stable UUID. All widget StringIds used at runtime exist in every widget language table. The small native fields and large ambient-strip background require visual validation on the car; local mocks cannot prove HMI layout placement or text wrapping.
 
-The official MGU Store reader at commit **5bf4aa6da0d2af82b59385ba97b9a8091f0a3d9d** accepted all three prepared layouts: anonymous GitHub Releases, direct HTTPS catalog and USB folder. Both components list as `available` for a new installation and `update` over app0.2.5/service0.2.4. Package identity/version, full author, ID7 compatibility, dependency on service0.2.5, archive parsing, component file hashes, sizes, approved icon and absence of the BMW SDK passed. USB made no network requests.
+Home shares at most one status request per second between placed visible widgets, closes a stalled socket after2seconds, and avoids repeatedly rewriting identical PNGs. Frames update on state/lifecycle changes with a30second recovery refresh. Existing main-app requests retain their12second default timeout.
 
-The network adapter served the candidate files locally at their intended public URLs. This establishes reader compatibility; it does not claim a live download of unpublished0.2.6 assets or execute a vehicle install. Reader modules/provenance and machine-readable results were retained with the local delivery audit.
+## Test delivery
 
-## Complete source and publication
+The USB candidate contains app0.2.7 and service0.2.5, local catalog checksums and the approved icon. mgu-copy.json identifies it as an offline copy of github:dorindumitras/ambient-drive so a configured GitHub source retains the app origin during update. The complete source archive is included. Package integrity, source completeness, a clean-source rebuild and Store-reader results are retained with the final local delivery report.
 
-The full source tree contains **113** files, including application, service, kit, font licenses, build scripts, tests, docs, metadata and hidden .gitignore. The named source ZIP and repository directory contain the same files. Both install artifacts and the icon have frozen checksums in RELEASE-ARTIFACTS.json. The GitHub bundle includes those artifacts, the absolute-URL catalog, the complete named source ZIP, checksums and publication instructions. The USB catalog resolves relative paths to the same archive bytes.
+## Hardware status
 
-The existing public main tree was read at commit **f800ffcb4fd797d6fb53647588a457bbaa35dd57** before this update and matched all106previous source files; all README screenshot URLs were retained. Online installation uses the complete source tree plus the two prepared install assets, icon and absolute-URL catalog attached to the existing catalog release.
+No Home widget has been installed or observed on the G01 by this audit. Required checks: Add widget list, small/large text and image placement, tap, live updates with the app screen closed, language changes, hide/remove/re-add, restart and vehicle sleep/wake.
 
-## Remaining physical validation
-
-The G01 previously confirmed0.2.4 automatic colors and native previews. Physical0.2.6 retest, Sport Plus/Individual/Adaptive on equipped vehicles, full vehicle sleep/wake and first installation on other firmware remain unconfirmed. The existing head unit must supply its native SOME/IP module, generated service configurations, donor SDK and matching artwork. No new G01 reads are needed for the implemented menu/rule split; readings are needed if a newly tested vehicle does not report a mode distinctly.
+The separate G01 xDrive30i2026 M/S input problem remains under diagnosis. The Home candidate keeps the service binding unchanged and will show waiting when no current mode can be resolved. This is not a vehicle compatibility fix.

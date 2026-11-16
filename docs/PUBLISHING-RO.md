@@ -1,6 +1,8 @@
-# Publicare Ambient Drive 0.2.6 / Service 0.2.5
+**Versiune de test cu widget Home. Confirmarea fizică a widgetului și sleep/wake rămâne de făcut.**
 
-Țintă: **dorindumitras/ambient-drive**. Sursa și linkul adăugate în Store rămân aceleași. Acest pachet este complet, dar nu se încarcă singur pe GitHub. Publică după testul noii versiuni pe mașină.
+# Publicare Ambient Drive 0.2.7 / Service 0.2.5
+
+Țintă: **dorindumitras/ambient-drive**. Sursa și linkul adăugate în Store rămân aceleași. Acest pachet este complet, dar nu se încarcă singur pe GitHub. Păstrează în descriere starea reală a testării pe mașină.
 
 ## 1. Codul sursă complet
 
@@ -17,11 +19,10 @@ Deschide https://github.com/dorindumitras/ambient-drive/releases → release-ul 
 
 Din folderul `release-assets`, adaugă:
 
-- `dorin-ambient@0.2.5.tgz`
-- `dorin_ambientdrive@0.2.6.tgz`
-- `Ambient-Drive-0.2.6-source.zip`
+- `dorin_ambientdrive@0.2.7.tgz`
+- `Ambient-Drive-0.2.7-source.zip`
 
-Păstrează `ambient-drive.png` existent — este identic cu cel inclus. Dacă lipsește, încarcă-l și pe el. Pachetele și sursele vechilor versiuni pot rămâne atașate.
+Păstrează `dorin-ambient@0.2.5.tgz` existent — serviciul este identic cu cel necesar versiunii0.2.6. Dacă lipsește, încarcă-l din release-assets. Păstrează `ambient-drive.png` existent — este identic cu cel inclus. Dacă lipsește, încarcă-l și pe el. Pachetele și sursele vechilor versiuni pot rămâne atașate.
 
 **După ce noile arhive s-au încărcat**, în aceeași editare, înlocuiește assetul `catalog.json` existent cu **catalog.json din release-assets**. GitHub nu permite două assets cu același nume: elimină vechiul catalog.json din Assets, apoi atașează noul fișier. Nu folosi catalog.json din folderul pentru stick: acela are adrese relative.
 
@@ -31,11 +32,11 @@ Pune în descriere textul din `RELEASE-NOTES.md` și apasă **Update release**. 
 
 Deschide https://github.com/dorindumitras/ambient-drive/releases/download/catalog/catalog.json. Trebuie să descarce un JSON schema2 cu:
 
-- `dorin_ambientdrive`, versiunea `0.2.6`, requires `dorin-ambient: 0.2.5`;
+- `dorin_ambientdrive`, versiunea `0.2.7`, requires `dorin-ambient: 0.2.5`;
 - `dorin-ambient`, versiunea `0.2.5`;
 - ambele URL-uri sub `https://github.com/dorindumitras/ambient-drive/releases/download/catalog/`.
 
-Descarcă cele două tgz-uri din adresele JSON. Dimensiunile și SHA256 trebuie să corespundă `CHECKSUMS.json` / `RELEASE-ARTIFACTS.json`. Arhiva `Ambient-Drive-0.2.6-source.zip` conține toate sursele, inclusiv kit, tools și tests. GitHub mai afișează automat Source code (zip/tar.gz) pentru commitul tagului catalog; pentru sursele complete ale acestei versiuni folosește arhiva cu numele explicit sau main. Opțional creează tagul v0.2.6 după încărcarea tuturor surselor.
+Descarcă cele două tgz-uri din adresele JSON. Dimensiunile și SHA256 trebuie să corespundă `CHECKSUMS.json` / `RELEASE-ARTIFACTS.json`. Arhiva `Ambient-Drive-0.2.7-source.zip` conține toate sursele, inclusiv kit, tools și tests. GitHub mai afișează automat Source code (zip/tar.gz) pentru commitul tagului catalog; pentru sursele complete ale acestei versiuni folosește arhiva cu numele explicit sau main. Opțional creează tagul v0.2.7 după încărcarea tuturor surselor.
 
 ## 4. Utilizatorii
 

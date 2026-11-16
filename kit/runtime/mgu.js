@@ -356,16 +356,30 @@ class Widget {
         const name = SPEC.id.toUpperCase() + '_WIDGET';
         const c = rhmiApp && rhmiApp.getByName(name);
         if (!c) { log.warn('widget: no component ' + name); return; }
+        if (this.comp === c) { this._changed('ready'); return; }
+        Object.keys(this._img).forEach((id) => this._drop(id));
+        this.vis = Object.create(null);
         this.comp = c;
         c.on('created', (e) => { this.vis[e.spawnId] = true; this._static(e.spawnId); this._changed('placed'); });
         c.on('resize', (e) => { this._forget(e.spawnId); this._changed('resized'); });
         c.on('visible', (e) => { this.vis[e.spawnId] = !!e.visible; if (e.visible) this._forget(e.spawnId); this._changed(e.visible ? 'shown' : 'hidden'); });
-        ['abort', 'destroyed'].forEach((n) => c.on(n, (e) => { delete this.vis[e.spawnId]; this._forget(e.spawnId); this._changed('removed'); }));
+        ['abort', 'destroyed'].forEach((n) => c.on(n, (e) => { delete this.vis[e.spawnId]; this._drop(e.spawnId); this._changed('removed'); }));
         c.on('action', (e) => { log.info('widget tapped (' + e.spawnId + ')'); this._tap.forEach((fn) => { try { fn(e); } catch (err) { log.error(err); } }); });
         this.instances().forEach((i) => this._static(i.spawnId));
         this._changed('ready');
     }
     _forget(spawnId) { const st = this._img[spawnId]; if (st) st.lastPx = null; }
+    _drop(spawnId) {
+        const st = this._img[spawnId]; delete this._img[spawnId];
+        if (st) {
+            st.disposed = true; st.next = null;
+            if (st.live.length && this.comp) this.comp.getResourceBundle().destroyResourceHandles(st.live).catch(() => {});
+        }
+        for (let k = 0; k < 4; k++) {
+            const file = path.join(RHMI_RES, 'dyn_' + RUN_TAG + '_w' + spawnId + '_' + k + '.png');
+            [file, file + '.tmp'].forEach((f) => { try { fs.unlinkSync(f); } catch (e) { /* already gone */ } });
+        }
+    }
     /** The layout's fixed cells (app.json startWidget.cells), written once per placed widget. */
     _static(spawnId) {
         const cells = this.spec.cells || {};
@@ -386,7 +400,7 @@ class Widget {
         if (st.busy) { st.next = img; return st.busy; }
         const cell = this.spec.image || 'BackgroundImage1';
         const run = async (frame) => {
-            if (!this.comp) return;
+            if (!this.comp || st.disposed) return;
             const px = Buffer.from(frame.d.buffer, frame.d.byteOffset, frame.d.length);
             if (st.lastPx && Date.now() - st.lastPush < 5000 && px.equals(st.lastPx)) return;
             const rb = this.comp.getResourceBundle();
@@ -395,7 +409,9 @@ class Widget {
             fs.writeFileSync(file + '.tmp', png);
             fs.renameSync(file + '.tmp', file);
             await rb.createResourceHandles([file]);
+            if (st.disposed) { await rb.destroyResourceHandles([file]); try { fs.unlinkSync(file); } catch (e) {} return; }
             await this.comp.setValue(Number(spawnId), cell, rb.getResourceHandle(file), 'Asset');
+            if (st.disposed) { await rb.destroyResourceHandles([file]); try { fs.unlinkSync(file); } catch (e) {} return; }
             this.timing.png += t1 - t0; this.timing.push += Date.now() - t1;
             if (!st.lastPush) log.info('widget ' + spawnId + ': first image in ' + (Date.now() - t0) + ' ms');
             st.lastPx = Buffer.from(px); st.lastPush = Date.now();
@@ -404,7 +420,7 @@ class Widget {
         };
         st.busy = run(img).catch((e) => log.warn('widget image ' + spawnId + ': ' + e)).then(() => {
             st.busy = null;
-            if (st.next) { const n = st.next; st.next = null; return this.image(spawnId, n); }
+            if (!st.disposed && st.next) { const n = st.next; st.next = null; return this.image(spawnId, n); }
         });
         return st.busy;
     }

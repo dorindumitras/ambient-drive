@@ -1,10 +1,42 @@
 {
   "id": "dorin_ambientdrive",
   "title": "Ambient Drive",
-  "description": "Schimbă automat lumina ambientală după modul de condus. Culori independente pentru Sport, Sport Plus, Sport Individual, Comfort, Adaptive, Eco Pro, Eco Pro Individual și M/S. STANDARD păstrează culoarea curentă; setările sunt memorate.",
-  "version": "0.2.6",
+  "description": "Schimbă automat lumina ambientală după modul de condus. Culori independente pentru Sport, Sport Plus, Sport Individual, Comfort, Adaptive, Eco Pro, Eco Pro Individual și M/S. STANDARD păstrează culoarea curentă; setările sunt memorate. Widget Home cu modul, culoarea setată și starea automatizării.",
+  "version": "0.2.7",
   "vendor": "Dorin",
   "author": "Dorin Dumitras",
+  "startWidget": {
+    "name": "Ambient Drive",
+    "layout": "LT_Table_OnlineApps_DriveRecorderWidget",
+    "image": "BackgroundImage1",
+    "size": [
+      384,
+      256
+    ],
+    "scale": 2,
+    "safe": [
+      0.09,
+      0.17
+    ],
+    "cells": {
+      "Title": [
+        "Ambient Drive",
+        "Text"
+      ],
+      "ErrorInfo": [
+        false,
+        "Bool"
+      ],
+      "background": [
+        true,
+        "Bool"
+      ],
+      "ProgressbarVisible": [
+        false,
+        "Bool"
+      ]
+    }
+  },
   "loggingId": "DAMB",
   "iconGlyph": "AD",
   "nativeGids": [

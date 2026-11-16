@@ -6,7 +6,9 @@ var artwork = require('./artwork');
 var nativeSwatches = require('./native-swatches');
 var nativePreview = require('./native-preview');
 var nativeFocus = require('./native-focus');
+var homeWidget = require('./home-widget');
 mgu.run({start: async function (ctx) {
+    try { homeWidget.start(ctx,client); } catch (e) { ctx.log.warn('Ambient Drive Home widget: ' + e.message); }
     var ui = ctx.ui, latest = null, controlChain = Promise.resolve(), pendingActions = 0;
     // app.start() has already accepted the baseline XML. Optional group changes
     // must never delay initialized() or abort the app if this HMI refuses one.

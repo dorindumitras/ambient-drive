@@ -95,6 +95,9 @@ def main():
             icon='ambient-drive.png', iconSha256=sha(icon.read_bytes()),
             artifact=dict(name=artifact.name, url=artifact.name, size=len(data), sha256=sha(data))))
     (USB / 'catalog.json').write_text(json.dumps(dict(schema=2, components=components), ensure_ascii=False, indent=2) + '\n')
+    # Treat the test stick as an offline copy of the user's existing GitHub
+    # source, so the prebuilt app updates its current ID rather than colliding.
+    (USB / 'mgu-copy.json').write_text(json.dumps({'copyOf': 'github:dorindumitras/ambient-drive'}) + '\n')
     shutil.copyfile(ROOT / 'README.md', OUT / 'CITESTE-MA.md')
     if args.validation:
         shutil.copyfile(ROOT / 'TEST-PE-MGU.md', OUT / 'TEST-PE-MGU.md')
