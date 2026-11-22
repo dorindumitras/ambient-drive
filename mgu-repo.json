@@ -18,12 +18,12 @@
       "kind": "app",
       "path": "apps/dorin_ambientdrive",
       "title": "Ambient Drive",
-      "version": "0.2.7",
+      "version": "0.2.8",
       "mguHmi": [
         "ID7"
       ],
       "requires": {
-        "dorin-ambient": "0.2.5",
+        "dorin-ambient": "0.2.6",
         "mgu-deploy": "0.7.11",
         "mgu-python": "1.0.2"
       },

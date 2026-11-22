@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 tests = [
     'rules', 'ui', 'adaptive-migration', 'sport-split', 'service', 'transport-startup',
     'native-swatches', 'native-focus', 'standard-graphic', 'artwork',
-    'image-result', 'verified-bindings', 'home-widget', 'widget-runtime', 'widget-client',
+    'image-result', 'verified-bindings', 'compatibility', 'home-widget', 'widget-runtime', 'widget-client',
 ]
 commands = [['node', 'tests/' + name + '.test.js'] for name in tests]
 commands.extend([

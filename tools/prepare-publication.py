@@ -55,7 +55,9 @@ def main():
     source_zip(repo, assets / ('Ambient-Drive-' + app + '-source.zip'))
     public = copy.deepcopy(catalog)
     for c in public['components']:
-        c['artifact']['url'] = BASE + c['artifact']['name']
+        published_url = expected[c['id']]['url']
+        c['artifact']['url'] = published_url if published_url.startswith('https://') else BASE + c['artifact']['name']
+        c['icon'] = frozen['icon'].get('url', c['icon'])
     for c in catalog['components']:
         shutil.copyfile(USB / c['artifact']['name'], assets / c['artifact']['name'])
     shutil.copyfile(USB / 'ambient-drive.png', assets / 'ambient-drive.png')
@@ -69,11 +71,9 @@ def main():
     shutil.copyfile(ROOT / 'docs/STICK-RO.md', stick / 'CITESTE-MA.md')
     (github / 'RELEASE-NOTES.md').write_text(
         '# Ambient Drive ' + app + '\n\nApp ' + app + ' / Service ' + service +
-        '\n\nNative Home widget with detected driving mode, configured color and automation state, native iDrive-language text and small/large layouts. Tap opens the existing settings.'
-        ' Based on0.2.6; the complete service0.2.5 artifact is unchanged. All eight independent color rules and saved settings are retained.'
-        '\n\nTest release:19local regression/build checks and clean-source reproducibility passed. Physical Home, sleep/wake and additional-vehicle validation remain unconfirmed.'
-        ' The reported G01 xDrive30i2026 M/S notification issue remains under investigation; this Home-only update does not fix its input binding.'
-        ' ID7 only. Keep the existing catalog tag and Store source.\n')
+        '\n\nTest release for iDrive 7. The Home widget displays a colour square, the driving mode and the automation state.'
+        ' The service follows a confirmed driving mode when M/S has never reported and is set to STANDARD.'
+        '\n\nPhysical colour changes on the G01 xDrive30i with 2026 software and the compact Home swatch still need on-car verification.\n')
     checksums = {}
     for file in sorted(assets.iterdir()):
         data = file.read_bytes(); checksums[file.name] = {'size': len(data), 'sha256': sha(data)}

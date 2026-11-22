@@ -10,12 +10,15 @@ var tar = require(path.join(readerRoot, 'tar.js'));
 var assets = path.join(root, 'publication/github/release-assets');
 var usb = path.join(root, 'publication/stick/mgu-repo/ambient-drive-test');
 var base = 'https://github.com/dorindumitras/ambient-drive/releases/download/catalog/';
+var version = require('../RELEASE-ARTIFACTS.json').appVersion;
+var versionBase = 'https://github.com/dorindumitras/ambient-drive/releases/download/v' + version + '/';
 var requests = [];
 function sha(data) { return crypto.createHash('sha256').update(data).digest('hex'); }
 async function fetch(url, headers, name, max) {
-    assert.ok(url.indexOf(base) === 0, 'Unexpected URL: ' + url);
+    var prefix = url.indexOf(base) === 0 ? base : versionBase;
+    assert.ok(url.indexOf(prefix) === 0, 'Unexpected URL: ' + url);
     assert.strictEqual(headers.Authorization, undefined, 'Public source requires no token');
-    var filename = url.slice(base.length);
+    var filename = url.slice(prefix.length);
     assert.ok(/^[A-Za-z0-9@._-]+$/.test(filename));
     var data = fs.readFileSync(path.join(assets, filename));
     assert.ok(data.length <= max); requests.push({url: url, filename: filename}); return data;
@@ -68,6 +71,6 @@ async function main() {
     result.push(await check({id: 'ambient-drive-usb', type: 'usb', root: usb}));
     assert.strictEqual(requests.length, before, 'USB resolves every artifact and icon locally');
     console.log(JSON.stringify({allChecksPassed: true, results: result, requests: requests,
-        transport: 'local files at their intended public URLs; no live0.2.6 download or vehicle installation claimed'}, null, 2));
+        transport: 'local files at their intended public URLs'}, null, 2));
 }
 main().catch(function (e) { console.error(e.stack); process.exitCode = 1; });

@@ -20,7 +20,7 @@ vm.runInNewContext(source.slice(begin,end)+'\nmodule.exports={Widget:Widget,patc
 var Widget=context.module.exports.Widget;
 async function event(command,events){return app._createStartWidgetRhmiApplication({configData:JSON.stringify({command:command,events:events})});}
 async function main(){
-    var widget=new Widget({image:'BackgroundImage1',cells:{Title:['SID_DORIN_AMBIENTDRIVE_WIDGET_NAME','StringId']}});
+    var widget=new Widget({image:'BackgroundImage1',smallImage:'IconCam',cells:{Title:['SID_DORIN_AMBIENTDRIVE_WIDGET_NAME','StringId']}});
     context.module.exports.patchStartWidgetEvents(app);widget.attach(rhmi);widget.attach(rhmi);
     assert.strictEqual(comp.listenerCount('action'),1,'Reattachment cannot multiply tap handlers');
     var tap=source.match(/widget\.onTap\(\(\) => \{ if \(entryUuids\[0\]\) openEntry\(entryUuids\[0\]\); \}\);/)[0];
@@ -28,14 +28,17 @@ async function main(){
     await event('CREATE_START_WIDGET_RHMI_APP',[{type:'created',componentId:501,spawnId:7,widgetSize:1}]);
     assert.strictEqual(widget.instances()[0].big,false);assert.strictEqual(widget.active(),true);
     assert.ok(sets.some(function(s){return s[0]===7&&s[1]==='Title'&&s[3]==='StringId';}));
+    var frame={d:new Uint8Array([1,2,3,255]),png:function(){return Buffer.from('png');}};
+    await widget.image(7,frame);
+    assert.ok(sets.some(function(s){return s[0]===7&&s[1]==='IconCam'&&s[3]==='Asset';}));
     await event('CREATE_START_WIDGET_RHMI_APP',[{type:'resize',componentId:501,spawnId:7,widgetSize:2}]);
     assert.strictEqual(widget.instances()[0].big,true);
     var calls=originalCalls;
     await app._createStartWidgetRhmiApplication({configData:JSON.stringify({command:'SEND_EVENTS',rhmiEvents:{501:[{type:'action',spawnId:7},{type:'visible',spawnId:7,visible:false}]}})});
     assert.strictEqual(originalCalls,calls,'SEND_EVENTS never recreates the widget');
     assert.deepStrictEqual(opened,['main-entry']);assert.strictEqual(widget.active(),false);
-    var frame={d:new Uint8Array([1,2,3,255]),png:function(){return Buffer.from('png');}};
     await widget.image(7,frame);var count=sets.length;await widget.image(7,frame);
+    assert.ok(sets.some(function(s){return s[0]===7&&s[1]==='BackgroundImage1'&&s[3]==='Asset';}));
     assert.strictEqual(sets.length,count,'Identical pixels are coalesced');
     await event('CREATE_START_WIDGET_RHMI_APP',[{type:'destroyed',componentId:501,spawnId:7}]);
     assert.strictEqual(widget.instances().length,0);assert.ok(destroyed.length>=1);assert.strictEqual(widget._img[7],undefined);

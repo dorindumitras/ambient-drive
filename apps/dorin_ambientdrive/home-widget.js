@@ -29,32 +29,25 @@ function view(status) {
 function cells(v) {
     return {Title:['SID_DORIN_AMBIENTDRIVE_WIDGET_NAME','StringId'],
         TextRecordings:[v.mode ? PREFIX+v.mode.toUpperCase() : W+'NO_DATA','StringId'],
-        TextCam:[v.color===undefined ? W+'NO_DATA' : 'SID_AD_COLOR_'+(v.color===null?'NONE':v.color.toUpperCase()),'StringId'],
-        TimeElapsed:[W+v.status,'StringId'],TimeRemaining:[W+'COLOR_SET','StringId'],
+        TextCam:['','Text'],TimeElapsed:[W+v.status,'StringId'],TimeRemaining:['','Text'],
         ProgressbarVisible:[false,'Bool'],ErrorInfo:[false,'Bool'],background:[true,'Bool']};
 }
-function draw(v) {
-    var cv=new Canvas(768,512).clear('#080d16');
-    cv.gradientRect(0,0,768,512,[[0,'#0e1724'],[1,'#03060b']]);
-    var key=v.color, base=typeof key==='string'?key.replace(/_white$/,''):null;
-    var rgb=RGB[base]||'#627185', pair=typeof key==='string'&&/_white$/.test(key);
-    var color=require('./kit/canvas').rgba(rgb);
-    // Decorative front/door strips; the HMI owns all foreground text/layout.
-    // Empty/disabled/unavailable views stay neutral instead of showing stale colors.
-    var segments=[[120,292,226,244],[226,244,542,244],[542,244,648,292]];
-    segments.forEach(function (s) {
-        cv.line(s[0],s[1],s[2],s[3],34,[color[0],color[1],color[2],12]);
-        cv.line(s[0],s[1],s[2],s[3],15,[color[0],color[1],color[2],35]);
-        cv.line(s[0],s[1],s[2],s[3],4,[color[0],color[1],color[2],180]);
-        if(pair)cv.line(s[0],s[1]+9,s[2],s[3]+9,3,[237,245,255,180]);
-    });
+function draw(v, small) {
+    var cv=small?new Canvas(72,72):new Canvas(768,512).clear('#080d16');
+    if(!small)cv.gradientRect(0,0,768,512,[[0,'#0e1724'],[1,'#03060b']]);
+    if(typeof v.color!=='string')return cv;
+    var pair=/_white$/.test(v.color), rgb=RGB[v.color.replace(/_white$/,'')];
+    if(!rgb)return cv;
+    var x=small?5:495, y=small?5:219, size=small?62:112;
+    cv.fillRect(x,y,size,size,rgb);
+    if(pair)cv.fillRect(x,y+size/2,size,size/2,RGB.white);
     return cv;
 }
 function start(ctx, client, options) {
     if (!ctx.widget || typeof ctx.widget.loop!=='function') return null;
     options=options||{};
     var now=options.now||Date.now, latest=null, sampledAt=-Infinity, pending=null;
-    var previous=Object.create(null), frames=Object.create(null), graphic=null, graphicKey=null, warned=false;
+    var previous=Object.create(null), frames=Object.create(null), graphics=Object.create(null), warned=false;
     function read() {
         if(pending)return pending;
         if(now()-sampledAt<1000)return Promise.resolve(latest);
@@ -67,7 +60,7 @@ function start(ctx, client, options) {
     }
     ctx.widget.onChange(function(){
         previous=Object.create(null);frames=Object.create(null);sampledAt=-Infinity;
-        if(typeof ctx.widget.instances==='function'&&!ctx.widget.instances().length){graphic=null;graphicKey=null;latest=null;}
+        if(typeof ctx.widget.instances==='function'&&!ctx.widget.instances().length){graphics=Object.create(null);latest=null;}
     });
     ctx.widget.loop(1,async function(inst){
         if(inst.visible===false)return null;
@@ -80,15 +73,14 @@ function start(ctx, client, options) {
         });
         await Promise.all(changes);
         if(changes.length)old._sentAt=now();
-        if(!inst.big)return null; // BMW's small layout uses native text cells.
-        var key=JSON.stringify([v.color,v.status]);
-        if(graphicKey!==key){graphic=draw(v);graphicKey=key;}
+        var layout=inst.big?'large':'small', key=JSON.stringify([layout,v.color]);
         // Home can stay visible for hours. Avoid repeatedly writing identical
         // PNGs; refresh on state/lifecycle changes, with a slow recovery retry.
         var sent=frames[inst.spawnId];
         if(sent&&sent.key===key&&now()-sent.at<30000)return null;
+        if(!graphics[layout] || graphics[layout].key!==key)graphics[layout]={key:key,frame:draw(v,!inst.big)};
         frames[inst.spawnId]={key:key,at:now()};
-        return graphic;
+        return graphics[layout].frame;
     });
     return {view:view};
 }

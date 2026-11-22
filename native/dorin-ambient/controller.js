@@ -19,11 +19,22 @@ function command(s, target) {
 function matches(s, target) {
     return !!s && s.statusMenuAmbientePanoramicRoofInteriorLighting === target.menu && s.statusHueInteriorLighting === target.hue;
 }
-function createState() { return {candidate: null, observed: null, lastKey: null, lastMode: null}; }
+function createState() { return {candidate: null, observed: null, lastKey: null, lastMode: null, manualSeen: false}; }
+function ruleMode(state, ctx, config) {
+    if (ctx && ctx.manualSupported) {
+        if (typeof ctx.manual === 'boolean') state.manualSeen = true;
+        else if (!state.manualSeen && config.rules.manual === null) {
+            // A unit that never publishes M/S can still use a confirmed FES
+            // mode. Loss of an established M/S signal retains the old guard.
+            return model.resolve({fes: ctx.fes, baseDriveMode: ctx.baseDriveMode});
+        }
+    }
+    return model.resolve(ctx);
+}
 async function step(state, io) {
     var ctx = await io.readContext();
-    if (io.observe) io.observe(ctx);
-    var mode = model.resolve(ctx);
+    var mode = ruleMode(state, ctx, io.settings());
+    if (io.observe) io.observe(ctx, mode);
     if (mode !== state.observed) { io.log('AUTO_MODE ' + String(mode)); state.observed = mode; }
     if (!mode) { state.candidate = null; return; }
     if (state.candidate !== mode) { state.candidate = mode; return; }
@@ -46,7 +57,7 @@ async function step(state, io) {
         state.lastKey = key; state.lastMode = mode; io.log('AUTO_ALREADY ' + selected); return;
     }
     if (!io.running()) return;
-    if (model.resolve(await io.readContext()) !== mode) { state.candidate = null; return; }
+    if (ruleMode(state, await io.readContext(), io.settings()) !== mode) { state.candidate = null; return; }
     if (!io.running() || io.settings().rules[mode] !== selected) return;
     state.lastKey = key; state.lastMode = mode;
     io.log('AUTO_WRITE ' + mode + ' -> ' + selected);

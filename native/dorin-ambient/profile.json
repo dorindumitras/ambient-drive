@@ -43,6 +43,17 @@
       ],
       "maxAgeMs": 1500,
       "evidence": "mgu putty (13).txt: D/S/M/D, 44 matching frames; primary notifications every 100 ms, observed ages 6-73 ms"
+    },
+    "manualFallback": {
+      "iface": "de.bmw.infotainment.misc.MDrive",
+      "field": "dataDisplayGearbox",
+      "instance": "1",
+      "transport": "notification",
+      "path": ["displayProgramGearbox"],
+      "trueValues": ["S_MINUS_PROGRAMM", "M_MINUS_PROGRAMM"],
+      "falseValues": ["DUNKELSCHALTUNG"],
+      "maxAgeMs": 1500,
+      "evidence": "44 paired frames on the tested G01 in D/S/M/D; the display program matched Powertrain"
     }
   },
   "image": {
@@ -64,5 +75,5 @@
     "sportIndividualLabel": "Sport Individual",
     "ecoProIndividualLabel": "Eco Pro Individual"
   },
-  "note": "Service0.2.5 separates SPORT_EXPERT/PHEV_SPORT_PLUS from Sport and migrates the shared rule once, including STANDARD. Individual signals retain independent rules. Transport, root/socket permissions, persistence and controller unchanged. Vehicle0.2.6 retest, additional modes and sleep/wake remain pending."
+  "note": "Service 0.2.6 uses verified FES readings even when the car never reports M/S and the M/S rule is STANDARD. A valid M/S sample retains priority. The MDrive fallback and FES subscription use matching generated interfaces when present."
 }

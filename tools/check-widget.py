@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the exact StartWidget package, locale resources and unchanged main UI/service."""
+"""Check the exact StartWidget package, locales and unchanged main UI."""
 import hashlib
 import importlib.util
 import json
@@ -52,12 +52,13 @@ def main():
     assert ro['SID_AD_COLOR_NONE'] == 'STANDARD' and ro['SID_AD_WIDGET_WAITING'] == 'Așteaptă date'
     icon = WIDGET / 'variantGroups/Common/images' / comp['cells']['SelectionIcon']['value']
     assert sha(icon) == baseline['iconSha256']
-    assert sha(ROOT / 'validation/USB/mgu-repo/ambient-drive-test/dorin-ambient@0.2.5.tgz') == baseline['serviceArtifactSha256']
     # Rebuild only widget metadata at two versions: identity must survive updates.
     sys.path.insert(0, str(ROOT / 'kit/tools'))
     spec = importlib.util.spec_from_file_location('widget_builder', ROOT / 'kit/tools/build.py')
     builder = importlib.util.module_from_spec(spec); spec.loader.exec_module(builder)
     manifest = json.loads((ROOT / 'apps/dorin_ambientdrive/app.json').read_text())
+    runtime_spec = json.loads((STAGE / 'source/javascript/kit/app-spec.json').read_text())
+    assert runtime_spec['startWidget']['smallImage'] == manifest['startWidget']['smallImage'] == 'IconCam'
     with tempfile.TemporaryDirectory(prefix='ambient-widget-') as temp:
         temp = Path(temp)
         ids = []
@@ -66,7 +67,7 @@ def main():
             builder.build_start_widget(manifest, manifest['id'], str(icon), str(temp/version), str(temp/(version+'-pkg')))
             ids.append(json.loads((temp/(version+'-pkg')/'application.json').read_text())['application']['uuid'])
         assert ids == [app['uuid'], app['uuid']]
-    print('OK: packaged/installed native Home metadata,33locales, approved icon, stable widget identity; main UI/non-widget runtime/service exactly unchanged.')
+    print('OK: packaged native Home metadata, 33 locales, approved icon, stable widget identity and unchanged main UI.')
 
 
 if __name__ == '__main__':

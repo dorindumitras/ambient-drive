@@ -1,16 +1,7 @@
-# Ce copiezi pe stick — test widget Home
+# Ambient Drive 0.2.8 pe stick
 
-Extrage Ambient-Drive-0.2.7-Widget-Test-Stick.zip și copiază **mgu-repo** direct la rădăcina stickului. Structura:
+1. Extrage arhiva USB și copiază directorul `mgu-repo` la rădăcina stickului. Dacă ai alte surse, înlocuiește numai subfolderul `ambient-drive-test`.
+2. Deschide MGU Store, verifică sursa USB și actualizează **Ambient Drive Service** la **0.2.6**, apoi **Ambient Drive** la **0.2.8**. Alege Update pentru a păstra setările.
+3. Urmează [testele pe G01 și pentru widgetul Home](../TEST-PE-MGU.md).
 
-```text
-STICK/mgu-repo/ambient-drive-test/
-  catalog.json
-  mgu-copy.json
-  ambient-drive.png
-  dorin-ambient@0.2.5.tgz
-  dorin_ambientdrive@0.2.7.tgz
-```
-
-Înlocuiește numai vechiul folder ambient-drive-test și păstrează celelalte surse. MGU Store → USB → actualizează Ambient Drive la0.2.7. Serviciul0.2.5 este inclus pentru o instalare nouă și rămâne identic cu cel publicat. Nu șterge setările.
-
-Apoi deschide Ambient Drive o dată și adaugă Ambient Drive din lista nativă Adaugă widget de pe Home. Testează conform TEST-PE-MGU.md. Pachetul include și sursele complete pentru verificare/reproducere. Aceleași pachete pot fi oferite și prin sursa GitHub Releases; stickul rămâne varianta offline.
+Arhiva USB conține pachetele aplicației și serviciului, catalogul, pictograma și identificatorul sursei existente.

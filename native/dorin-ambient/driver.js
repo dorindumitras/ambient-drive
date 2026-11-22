@@ -4,6 +4,8 @@ var path = require('path');
 var READ = 'statusAmbientLightInteriorColour';
 var WRITE = 'ambientLightInteriorColour';
 var MODE = 'statusFESVehicleDynamicSwitchHMI';
+var MODE_VALUE = 'actualValueModeDrivingExperience';
+var MODE_EVENT_MAX_AGE_MS = 5000;
 var COLOR_FILE = 'de_bmw_infotainment_misc_ComfortFunctionIuK.json';
 var MODE_FILE = 'de_bmw_infotainment_drivingexcitement_FES.json';
 var chain = Promise.resolve();
@@ -24,7 +26,7 @@ function find(root) {
     fs.readdirSync(root).filter(function (n) { return /^oap_\d+$/.test(n); }).sort().forEach(function (n) {
         if (files.indexOf(n) < 0) files.push(n);
     });
-    var color, mode;
+    var color, mode, eventMode;
     files.forEach(function (app) {
         var dir = path.join(root, app, 'someipInterfaces');
         try {
@@ -33,9 +35,12 @@ function find(root) {
         } catch (e) {}
         try {
             var m = JSON.parse(fs.readFileSync(path.join(dir, MODE_FILE), 'utf8'));
-            if (!mode && m.fields[MODE].getter.id === 37) mode = m;
+            var f = m.fields[MODE];
+            if (!mode && f.getter && f.getter.id === 37) mode = m;
+            if (!eventMode && f.event && f.event.id === 32805) eventMode = m;
         } catch (e) {}
     });
+    mode = mode || eventMode;
     if (!color || !mode) throw new Error('Missing existing MGU color/mode interface configs');
     return {color: color, mode: mode};
 }
@@ -80,9 +85,25 @@ function bindingValue(value, def) {
     if (def.falseValues.indexOf(current) >= 0) return false;
     return undefined;
 }
+function freshNotification(state, maxAgeMs, now) {
+    var age = now - state.receivedAt;
+    if (!state.closed && state.available !== false && age >= 0 && age <= maxAgeMs) return state.latest;
+}
 function notificationValue(state,def,now) {
-    if (state.closed || state.available === false || !state.latest || now < state.receivedAt || now-state.receivedAt > def.maxAgeMs) return undefined;
-    return bindingValue(state.latest,def);
+    return bindingValue(freshNotification(state,def.maxAgeMs,now),def);
+}
+function modeName(raw, field) {
+    var value = raw && raw[MODE_VALUE];
+    if (typeof value === 'string' && /^[A-Za-z_][A-Za-z_0-9]*$/.test(value)) return value.toUpperCase();
+    if (typeof value === 'string' && /^\d{1,3}$/.test(value)) value = Number(value);
+    if (!Number.isInteger(value)) return undefined;
+    var schema = field.schema;
+    var entry = schema && schema.t === 'Struct' && Array.isArray(schema.e) && schema.e.find(function (e) {
+        return e.n === MODE_VALUE && e.t === 'Enum';
+    });
+    if (!entry || !entry.e) return undefined;
+    var matches = Object.keys(entry.e).filter(function (name) { return entry.e[name] === value; });
+    return matches.length === 1 ? matches[0] : undefined;
 }
 async function connect(profile) {
     var native = require('/usr/lib/someip.node');
@@ -96,36 +117,84 @@ async function connect(profile) {
     async function close() {
         stops.forEach(function (fn) { fn(); });
         for (var i = proxies.length - 1; i >= 0; i--) {
-            try { if (proxies[i].shutdown) await tick(function () { return proxies[i].shutdown(); }); } catch (e) {}
+            await shutdown(proxies[i]);
         }
+    }
+    async function shutdown(proxy) {
+        try { if (proxy.shutdown) await tick(function () { return proxy.shutdown(); }); } catch (e) {}
+    }
+    async function watch(proxy, field, decode, maxAgeMs) {
+        var state = {latest: undefined, receivedAt: 0, available: null, closed: false};
+        var stop = function () { state.closed = true; state.latest = undefined; };
+        try {
+            if (typeof proxy.subscribeToAvailability === 'function') {
+                await tick(function () { return proxy.subscribeToAvailability(function (available) {
+                    state.available = !!available;
+                    if (!available) state.latest = undefined;
+                }); });
+            }
+            await tick(function () { return proxy.subscribe({name:field,onReceive:function (value) {
+                if (state.closed) return;
+                try { state.latest = decode(value); state.receivedAt = Date.now(); }
+                catch (e) { state.latest = undefined; }
+            }}); });
+        } catch (e) { stop(); throw e; }
+        stops.push(stop);
+        return function () { return freshNotification(state,maxAgeMs,Date.now()); };
     }
     try {
         var light = await open(cfg.color), mode = await open(cfg.mode);
+        var field = cfg.mode.fields[MODE];
+        var getter = field.getter && field.getter.id === 37;
+        var modeEvent, preferEvent = !getter;
+        if (field.event && field.event.id === 32805) {
+            try { modeEvent = await watch(mode, MODE, function (raw) { return modeName(raw, field); }, MODE_EVENT_MAX_AGE_MS); }
+            catch (e) { if (!getter) throw e; }
+        }
+        async function readMode() {
+            var notified = modeEvent && modeEvent();
+            if (preferEvent && notified !== undefined) return {fes:notified, source:'notification'};
+            if (!getter) return {fes:undefined, source:null};
+            try {
+                var raw = await tick(function () { return mode.getValue(MODE, 2000); });
+                preferEvent = false;
+                return {fes:modeName(raw, field), source:'getter'};
+            } catch (e) {
+                preferEvent = true;
+                notified = modeEvent && modeEvent();
+                if (notified !== undefined) return {fes:notified, source:'notification'};
+                throw e;
+            }
+        }
         async function bind(def) {
             if (!def) return null;
-            var p = await open(bindingConfig('/var/opt/public/oap', def), def.instance);
-            if (def.transport === 'notification') {
-                var state = {latest:null,receivedAt:0,available:null,closed:false};
-                stops.push(function () { state.closed = true; state.latest = null; });
-                if (typeof p.subscribeToAvailability === 'function') {
-                    await tick(function () { return p.subscribeToAvailability(function (available) {
-                        state.available = !!available; if (!available) state.latest = null;
-                    }); });
-                }
-                await tick(function () { return p.subscribe({name:def.field,onReceive:function (value) {
-                    if (state.closed) return;
-                    try { state.latest = JSON.parse(JSON.stringify(value)); state.receivedAt = Date.now(); }
-                    catch (e) { state.latest = null; }
-                }}); });
-                return function () { return Promise.resolve(notificationValue(state,def,Date.now())); };
+            var count = proxies.length;
+            try {
+                var p = await open(bindingConfig('/var/opt/public/oap', def), def.instance);
+                if (def.transport === 'notification') return await watch(p, def.field, function (v) {
+                    return bindingValue(v, def);
+                }, def.maxAgeMs);
+                return async function () { return bindingValue(await tick(function () { return p.getValue(def.field, 2000); }), def); };
+            } catch (e) {
+                if (proxies.length > count) await shutdown(proxies.pop());
+                return null;
             }
-            return async function () { return bindingValue(await tick(function () { return p.getValue(def.field, 2000); }), def); };
         }
-        var manual = await bind(profile && profile.bindings && profile.bindings.manual);
+        var bindings = profile && profile.bindings || {};
+        var primaryManual = await bind(bindings.manual), secondaryManual = await bind(bindings.manualFallback);
+        async function readManual() {
+            var primary, secondary;
+            try { if (primaryManual) primary = await primaryManual(); } catch (e) {}
+            if (typeof primary === 'boolean') return {value:primary, source:'powertrain'};
+            try { if (secondaryManual) secondary = await secondaryManual(); } catch (e) {}
+            if (typeof secondary === 'boolean') return {value:secondary, source:'mdrive'};
+            return {value:undefined, source:null};
+        }
         return {
             readContext: async function () {
-                var s = await tick(function () { return mode.getValue(MODE, 2000); });
-                return {fes: s.actualValueModeDrivingExperience, manualSupported: !!manual, manual: manual ? await manual() : false};
+                var s = await readMode(), manual = await readManual();
+                return {fes:s.fes, modeSource:s.source, manualSupported:!!(bindings.manual || bindings.manualFallback),
+                    manual:manual.value, manualSource:manual.source};
             },
             readColor: function () { return tick(function () { return light.getValue(READ, 2000); }); },
             setColor: function (v) { return tick(function () { return light.setValue(WRITE, v, 4000); }); },
@@ -133,4 +202,5 @@ async function connect(profile) {
         };
     } catch (e) { await close(); throw e; }
 }
-module.exports = {connect: connect, find: find, bindingValue: bindingValue, bindingConfig: bindingConfig, notificationValue: notificationValue};
+module.exports = {connect: connect, find: find, bindingValue: bindingValue, bindingConfig: bindingConfig,
+    notificationValue: notificationValue, modeName: modeName};

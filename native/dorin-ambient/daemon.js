@@ -19,7 +19,8 @@ function create(options) {
     var store = require('./settings-store').create(dir), loaded = store.load(), config = loaded.value;
     var state = controller.createState(), inFlight = Promise.resolve();
     var server, worker, controlChain = Promise.resolve();
-    var view = {version: '0.2.5', phase: ready ? 'disabled' : 'setup_required', mode: null, lastColor: null, confirmedByReadback: false, lastError: loaded.error};
+    var view = {version: '0.2.6', phase: ready ? 'disabled' : 'setup_required', mode: null, lastColor: null,
+        confirmedByReadback: false, lastError: loaded.error, modeSource: null, manualSource: null};
     function status() {
         var visible = (profile.knownModes || []).concat(config.seenModes);
         var rules = Object.assign({}, config.rules);
@@ -28,8 +29,10 @@ function create(options) {
             availableModes: model.modes.filter(function (m) { return visible.indexOf(m) >= 0; })}, view);
     }
     function persist(value) { config = store.save(value); }
-    function observe(ctx) {
-        var raw = model.baseMode(ctx && ctx.fes), active = model.resolve(ctx);
+    function observe(ctx, active) {
+        var raw = model.baseMode(ctx && ctx.fes);
+        view.modeSource = ctx && ctx.modeSource || null;
+        view.manualSource = ctx && ctx.manualSource || null;
         var next = model.settings(config), changed = false;
         [raw, active].forEach(function (m) {
             if (m && next.seenModes.indexOf(m) < 0) { next.seenModes.push(m); changed = true; }
@@ -45,8 +48,11 @@ function create(options) {
             view.phase = 'applying'; view.confirmedByReadback = false;
         } else if (line.indexOf('AUTO_ALREADY ') === 0) {
             view.lastColor = line.slice(13); view.confirmedByReadback = true; view.phase = 'active'; view.lastError = null;
-        } else if (line.indexOf('AUTO_KEEP ') === 0) view.phase = 'keep';
-        else if (line.indexOf('AUTO_SKIP ') === 0) view.phase = 'ambient_off';
+        } else if (line.indexOf('AUTO_KEEP ') === 0) {
+            view.phase = 'keep'; view.lastError = null;
+        } else if (line.indexOf('AUTO_SKIP ') === 0) {
+            view.phase = 'ambient_off'; view.lastError = null;
+        }
         else if (line.indexOf('AUTO_RESULT ') === 0) {
             var r = JSON.parse(line.slice(12));
             view.lastColor = r.color; view.confirmedByReadback = r.confirmedByReadback;
@@ -101,6 +107,7 @@ function create(options) {
     }
     async function closeConnection() {
         if (connection) { var c = connection; connection = null; try { await c.close(); } catch (e) {} }
+        view.modeSource = null; view.manualSource = null;
     }
     async function loop() {
         var errors = 0;
@@ -187,7 +194,7 @@ function main() {
     var ending = false;
     function end() { if (!ending) { ending = true; daemon.stop().then(function () { process.exit(0); }, function () { process.exit(1); }); } }
     process.on('SIGINT', end); process.on('SIGTERM', end);
-    return daemon.start().then(function () { console.log('Ambient Drive 0.2.5 ready'); }, function (e) { console.error(e.stack); process.exit(1); });
+    return daemon.start().then(function () { console.log('Ambient Drive 0.2.6 ready'); }, function (e) { console.error(e.stack); process.exit(1); });
 }
 if (require.main === module) main();
 module.exports = {create: create, main: main};

@@ -398,9 +398,11 @@ class Widget {
     image(spawnId, img) {
         const st = this._img[spawnId] || (this._img[spawnId] = { n: 0, live: [], busy: null, next: null });
         if (st.busy) { st.next = img; return st.busy; }
-        const cell = this.spec.image || 'BackgroundImage1';
         const run = async (frame) => {
             if (!this.comp || st.disposed) return;
+            const inst = (this.comp.spawnedInstances || {})[spawnId];
+            const cell = inst && inst.widgetSize === 1 && this.spec.smallImage ||
+                this.spec.image || 'BackgroundImage1';
             const px = Buffer.from(frame.d.buffer, frame.d.byteOffset, frame.d.length);
             if (st.lastPx && Date.now() - st.lastPush < 5000 && px.equals(st.lastPx)) return;
             const rb = this.comp.getResourceBundle();

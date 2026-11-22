@@ -1,34 +1,28 @@
-# Test Home — Ambient Drive0.2.7 / Service0.2.5
+# Ambient Drive 0.2.8 și Ambient Drive Service 0.2.6
 
-Această versiune se bazează pe0.2.6 și adaugă widgetul Home. Serviciul, regulile de culoare și setările persistente sunt aceleași. Versiune de test publicată la cererea utilizatorului; confirmarea fizică a widgetului și sleep/wake nu este încă înregistrată.
+Versiune de test pentru iDrive 7. Compatibilitatea pe G01 xDrive30i cu software 2026 și afișarea pictogramei în widgetul mic trebuie confirmate pe mașină.
 
-## Instalare
+## Instalare de pe stick
 
-1. Extrage Ambient-Drive-0.2.7-Widget-Test-Stick.zip. Copiază mgu-repo la rădăcina stickului; înlocuiește numai folderul ambient-drive-test vechi.
-2. MGU Store → USB → Ambient Drive → Update la0.2.7. Serviciul necesar rămâne0.2.5 și este inclus. Nu dezinstala și nu șterge setările. Urmează orice restart cerut de Store.
-3. Deschide aplicația o dată: bifa și culorile trebuie păstrate, iar meniul/selectoarele/previzualizarea trebuie să funcționeze ca înainte.
+1. Extrage arhiva și copiază folderul `mgu-repo` la rădăcina stickului. Dacă ai deja alte surse USB, înlocuiește numai `mgu-repo/ambient-drive-test`.
+2. Deschide MGU Store, actualizează **Ambient Drive Service** la **0.2.6** și **Ambient Drive** la **0.2.8**. Folosește Update pentru a păstra setările.
+3. În Ambient Drive verifică bifa de activare și regulile salvate.
 
-## Widgetul
+## Test pe G01 xDrive30i
 
-1. În Home, deschide personalizarea paginii și lista Adaugă widget. Trebuie să apară Ambient Drive, cu pictograma aprobată.
-2. Adaugă-l și verifică dimensiunea mică: modul detectat, culoarea setată, starea automatizării.
-3. Mărește-l: verifică aceleași texte și ilustrația discretă cu luminile din față și de pe laterale. Culorile combinate trebuie să aibă și linie albă. Fotografiază ambele dimensiuni, pentru verificarea pozițiilor și încadrării pe HMI.
-4. Atinge widgetul: trebuie să deschidă meniul Ambient Drive. Revino pe Home.
-5. Cu mașina staționată, în READY, verifică Sport → Comfort → Eco Pro. Widgetul trebuie să arate modul și culoarea regulii după primirea datelor, de obicei în1–2secunde. Verifică separat M/S numai când poate fi selectat staționar.
-6. Alege o altă culoare și o variantă cu Alb în aplicație; revino Home și verifică textul/ilustrația. STANDARD trebuie afișat ca STANDARD și nu trebuie să trimită o comandă de culoare.
-7. Oprește bifa în aplicație și revino pe Home: apare Oprit, fără un mod/culoare veche prezentate ca actuale. Atingerea widgetului trebuie doar să deschidă aplicația, fără să pună bifa.
-8. Schimbă limba iDrive și verifică textele native din widget și meniurile existente. Numele de marcă Ambient Drive rămâne identic.
-9. Navighează pe altă pagină Home, revino, redimensionează, elimină și adaugă widgetul din nou. Datele trebuie să reapară fără pictograme sau imagini blocate.
-10. Verifică după repornirea unității și, separat, după sleep complet: widgetul și alegerile trebuie păstrate de platformă. Aceste verificări fizice nu sunt încă efectuate.
+1. Cu mașina staționată și iDrive pornit, lasă M/S pe STANDARD și alege culori diferite pentru Comfort, Sport și Eco Pro.
+2. Schimbă modurile pe rând și verifică luminile din habitaclu.
+3. Dacă luminile nu se schimbă, rulează comanda de diagnostic după fiecare mod și notează modul pe care l-ai selectat.
 
-## Interpretarea stării
+```sh
+node /var/opt/dorin-ambient/current/client.js status
+```
 
-- Activ: ultima aplicare raportată de serviciu este confirmată și corespunde regulii afișate. Culoarea afișată este cea configurată, nu o măsurare independentă a LED-urilor.
-- Așteaptă date: modul sau datele necesare nu sunt disponibile. Nu trebuie afișat artificial Sport/Comfort sau o culoare veche ca fiind actuală.
-- Neconfirmat / Se aplică / Lumini oprite: starea respectivă este raportată fără confirmare falsă.
-- Fără conexiune: aplicația nu poate citi serviciul.
-- STANDARD: regula păstrează culoarea, fără fallback la alt mod.
+`modeSource` arată dacă valoarea FES a venit prin citire sau notificare. `manualSource` arată sursa ultimei valori M/S valide. `confirmedByReadback` indică dacă unitatea a confirmat culoarea cerută.
 
-Problema M/S de pe G01 xDrive30i cu software2026 rămâne separată: acest pachet păstrează serviciul0.2.5 și nu introduce un semnal alternativ neverificat. Pe acea mașină widgetul poate arăta Așteaptă date.
+## Test pe G01 plug-in și Home
 
-Trimite fotografii cu widgetul mic și mare și rezultatele punctelor de mai sus. Dacă nu apare în lista Home sau nu se actualizează, trimite mesajul exact și logul aplicației; nu este necesară reinstalarea repetată înaintea analizei.
+1. Verifică dacă modurile Sport, Comfort și Eco Pro își păstrează regulile și dacă M/S are prioritate când mașina îl raportează.
+2. Deschide Home și testează widgetul **Ambient Drive** în ambele dimensiuni. Modul și starea rămân afișate ca text. Culoarea selectată ar trebui să apară ca pătrat. O combinație cu alb afișează ambele nuanțe.
+3. Verifică că STANDARD și oprirea automatizării elimină pătratul vechi. Apasă widgetul pentru a redeschide setările.
+4. Repetă testul după ce mașina intră în sleep. Verifică bifa și culorile salvate la revenire.

@@ -11,8 +11,8 @@ var labels = {sport:'Sport',sport_plus:'Sport Plus',sport_individual:'Sport Indi
 model.modes.forEach(function (mode) { items.push(['colorpick', 'MODE_' + mode.toUpperCase(), labels[mode] || mode.replace(/_/g, ' ')]); });
 items.push(['text3', 'STATUS', '']);
 fs.writeFileSync(path.join(folder, 'app.json'), JSON.stringify({id: appId, title: 'Ambient Drive',
-    description: 'Schimbă automat lumina ambientală după modul de condus. Culori independente pentru Sport, Sport Plus, Sport Individual, Comfort, Adaptive, Eco Pro, Eco Pro Individual și M/S. STANDARD păstrează culoarea curentă; setările sunt memorate. Widget Home cu modul, culoarea setată și starea automatizării.', version: '0.2.7', vendor: 'Dorin', author: 'Dorin Dumitras',
-    startWidget: {name:'Ambient Drive',layout:'LT_Table_OnlineApps_DriveRecorderWidget',image:'BackgroundImage1',size:[384,256],scale:2,safe:[0.09,0.17],
+    description: 'Schimbă automat lumina ambientală după modul de condus. Culori independente pentru Sport, Sport Plus, Sport Individual, Comfort, Adaptive, Eco Pro, Eco Pro Individual și M/S. STANDARD păstrează culoarea curentă; setările sunt memorate. Widget Home cu modul de condus, indicator de culoare și starea automatizării.', version: '0.2.8', vendor: 'Dorin', author: 'Dorin Dumitras',
+    startWidget: {name:'Ambient Drive',layout:'LT_Table_OnlineApps_DriveRecorderWidget',image:'BackgroundImage1',smallImage:'IconCam',size:[384,256],scale:2,safe:[0.09,0.17],
         cells:{Title:['Ambient Drive','Text'],ErrorInfo:[false,'Bool'],background:[true,'Bool'],ProgressbarVisible:[false,'Bool']}},
     loggingId: 'DAMB', iconGlyph: 'AD', nativeGids: ['GID_MYV_LIGHT_INTERIORLIGHT_AMBIENTLIGHTCOLOR_ICON','GID_MYV_SETTINGS_INTERIORLIGHT_AMBIENTLIGHT_PREVIEW'], screens: [{name: 'MAIN', kind: 'menu', title: 'Ambient Drive', items: items,
         contentPreview: {name:'INTERIOR_PREVIEW',widget:'LT_PreviewTable_1Graphic_1Text'},

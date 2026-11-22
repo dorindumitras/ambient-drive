@@ -1,5 +1,11 @@
 # Ambient Drive changes
 
+## 0.2.8 with service 0.2.6
+
+- Use fresh FES notifications when the driver-mode getter is unavailable. Decode numeric modes through the installed descriptor.
+- Follow verified drive modes when a unit has never reported M/S and its rule is STANDARD. Retain the M/S override for genuine M/S readings, with MDrive as an optional second source.
+- Show the selected colour as a square in Home, including both tones for paired colours. Retain the mode and automation state.
+
 ## App0.2.7 / Service0.2.5 — private Home-widget test
 
 - Native Home registration, approved icon and stable widget UUID.
